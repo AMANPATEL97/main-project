@@ -1,0 +1,21 @@
+// import { ENC_KEY } from "../config/conn.js";
+import jwt from 'jsonwebtoken';
+let Isadminloggedin=(req,res,next)=>{
+  if(req.headers.authorization){
+    let token=req.headers.authorization;
+    let obj= jwt.decode(token,process.env.ENC_KEY);
+    if(obj){
+        req.userobj =obj;
+
+    next();
+  }else{
+   res.send({success:false,msg : "un-authorization user &&&&&&&&&&&&"})     
+  }
+}
+  else{
+    res.send({success:false,msg : "un-authorization user #############"})
+  }
+}
+
+
+export default Isadminloggedin;

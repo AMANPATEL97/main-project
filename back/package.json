@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "dev" : "nodemon --env-file=.dev.env app.js",
+    "prod" : "node --env-file=.prod.env app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-fileupload": "^1.5.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.0.1",
+    "nodemailer": "^7.0.12",
+    "pdf-creator-node": "^2.3.5",
+    "random-int": "^3.1.0",
+    "razorpay": "^2.9.6",
+    "react-toastify": "^11.0.5",
+    "sha1": "^1.1.1"
+  }
+}
