@@ -1,5 +1,5 @@
 import express from 'express';
-import {getallcategory,getbyidcategory,getallcategoryAndsubcate,updatecategory,deletecategory,savecategory} from '../citycontroller/categorycontroller.js';
+import {getallcategory,getbyidcategory,getallcategoryAndsubcate,updatecategory,deletecategory,savecategory} from '../controller/categorycontroller.js';
 import Isadminloggedin from '../util/Isadminloggedin.js';
 let router=express.Router()
 

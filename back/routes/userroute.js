@@ -1,5 +1,5 @@
 import express from 'express';
-import { saveuser, deleteall, getall, profilepic,changestatus } from '../citycontroller/usercontroller.js';
+import { saveuser, deleteall, getall, profilepic,changestatus } from '../controller/usercontroller.js';
 import Isadminloggedin from '../util/Isadminloggedin.js'
 
 let ans=express.Router()

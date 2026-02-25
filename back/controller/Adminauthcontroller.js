@@ -25,7 +25,7 @@
 
 
 
-import Admin from '../citymodule/Adminauth.js';
+import Admin from '../module/Adminauth.js';
 import sha1 from 'sha1';
 import jwt from 'jsonwebtoken';
 // import {ENC_KEY } from '../config/conn.js';

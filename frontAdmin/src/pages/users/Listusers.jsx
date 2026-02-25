@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { ToastContainer,toast } from 'react-toastify'
 import { useState,useEffect } from 'react'
-import { APi_URl } from '../../config/API'
 import { Api_url } from '../../../../front/src/config/api'
 const Listusers = () => {
  
@@ -20,13 +19,22 @@ const Listusers = () => {
   },[])
 
     let changestatus=(obj,s)=>{
-      // console.log(obj)
         // console.log(s)
         axios.put(`${import.meta.env.VITE_Api_url}/user/changestatus/${obj._id}`,{status :s})
         .then(response=>{
           console.log(response.data);
+            setAllUser(curr=>curr.map(item=>{
+                if(item._id == obj._id){
+                    item.status=s;
+                    return item;
+                }else{
+                    return item;
+                }
+            }))
         })
     }
+    //     })
+    // }
 
   return (
   <>

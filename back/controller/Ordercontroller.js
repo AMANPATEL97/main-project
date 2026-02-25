@@ -1,5 +1,5 @@
 // import order from '../citymodule/Oreder.js';
-import Order from '../citymodule/Oreder.js';
+import Order from '../module/Oreder.js';
 // import { RAZORPAY_KEY,RAZORPAY_SECRET } from "../config/conn.js";
 import Razorpay from 'razorpay';
 

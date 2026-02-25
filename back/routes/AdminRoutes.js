@@ -1,5 +1,5 @@
 import express from 'express'
-import {saveAdmin,getallAdmin,getbyidAdmin,deleteAdmin,updatepassAdmin,getloggedInadmin,updateAdmin} from '../citycontroller/Admincontroller.js';
+import {saveAdmin,getallAdmin,getbyidAdmin,deleteAdmin,updatepassAdmin,getloggedInadmin,updateAdmin} from '../controller/Admincontroller.js';
 let routes =express.Router();
 
 

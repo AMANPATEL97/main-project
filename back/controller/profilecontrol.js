@@ -1,4 +1,4 @@
-import user from '../citymodule/usermodel.js';
+import user from '../module/usermodel.js';
 // import jwt from 'jsonwebtoken';
 // import { ENC_KEY } from '../config/conn.js';
 // import { syncIndexes } from 'mongoose';

@@ -1,5 +1,5 @@
 import express from 'express';
-import {Myprofile, Myprofilepic,updateprofile,changepassword} from '../citycontroller/profilecontrol.js';
+import {Myprofile, Myprofilepic,updateprofile,changepassword} from '../controller/profilecontrol.js';
 let routes= express.Router()
 
 routes.get("/",Myprofile)

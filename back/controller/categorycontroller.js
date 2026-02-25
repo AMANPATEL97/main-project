@@ -1,8 +1,8 @@
-import cate from "../citymodule/category.js";
+import cate from "../module/category.js";
 import jwt from 'jsonwebtoken';
 // import { ENC_KEY } from "../config/conn.js";
-import subcate from '../citymodule/subcategory.js'
-import Product from '../citymodule/productmodel.js';
+import subcate from '../module/subcategory.js'
+import Product from '../module/productmodel.js';
 
 
 let savecategory=async(req,res)=>{

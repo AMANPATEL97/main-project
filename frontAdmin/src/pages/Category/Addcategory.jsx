@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import {useNavigate,useParams}   from 'react-router-dom';
 import { ToastContainer,toast } from 'react-toastify';
+
+import categoryschema from '../../schema/categoryschema';
 const Addcategory = () => {
 
   let param = useParams();
@@ -25,6 +27,7 @@ const Addcategory = () => {
         toast("you are successfuly logged In.....")
       }
    let catefrm = useFormik({
+    validationSchema:categoryschema,
     enableReinitialize:true,
     initialValues :cate,
      

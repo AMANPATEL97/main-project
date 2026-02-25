@@ -1,5 +1,5 @@
 import express from 'express';
-import auth from '../citycontroller/authcontroller.js'
+import auth from '../controller/authcontroller.js'
 
 let rout=express.Router();
 

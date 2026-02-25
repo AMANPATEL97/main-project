@@ -1,4 +1,4 @@
-import user from '../citymodule/usermodel.js'
+import user from '../module/usermodel.js'
 import uniqueOtp from 'random-int';
 import sha1 from 'sha1';
 import Semdmailhelper from '../helper/semdmailhelper.js'

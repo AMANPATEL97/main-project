@@ -1,6 +1,6 @@
 import express from 'express';
 import {payment,Confirm,getallorderbyuserid,ChangeStatus,
-    getallorder,GetAllDelivered,GetAllPlacedOrder,GetAllOutForDel,GetAllShipped} from '../citycontroller/Ordercontroller.js';
+    getallorder,GetAllDelivered,GetAllPlacedOrder,GetAllOutForDel,GetAllShipped} from '../controller/Ordercontroller.js';
 
 import Isuserloggedin from '../util/Isuserloggedin.js'
 import Isadminloggedin from '../util/Isadminloggedin.js'

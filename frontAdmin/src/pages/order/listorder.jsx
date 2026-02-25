@@ -73,7 +73,7 @@ const listorder = () => {
                                         <td>{item.user_id ? item.user_id.name : ''}</td>
                                         <td>{item.product_id ? item.product_id.title : ''}</td>
                                         <td>{useUserDateTime(item.createdAt)}</td>
-                                        <td>{item.createdAt}</td>
+                                        {/* <td>{item.createdAt}</td> */}
                                         <td>{item.status == 1 ? <span className='badge rounded-pill placed'>Placed</span> : item.status==2 ? <span className='badge rounded-pill shipped'>Shipeed</span> : item.status==3 ? <span className='badge rounded-pill out'>Out For Delivery</span> : <span className='badge rounded-pill delivered'>Delivered</span>}</td>
                                         <td>{item.amount}</td>
                                         <td>{item.charge}</td>

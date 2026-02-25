@@ -1,4 +1,4 @@
-import { Auth } from "../citycontroller/Adminauthcontroller.js";
+import { Auth } from "../controller/Adminauthcontroller.js";
 import express from 'express';
 
 let routes = express.Router();

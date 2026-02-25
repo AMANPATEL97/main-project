@@ -127,7 +127,7 @@ const sidenav = () => {
           </li>
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#order" aria-expanded="false" aria-controls="ui-basic">
-           <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
               <span class="menu-title">order</span>
               <i class="menu-arrow"></i>
             </a>

@@ -1,5 +1,5 @@
 import express from 'express';
-import {getall,sendmail,DoPayment} from '../citycontroller/citycon.js';
+import {getall,sendmail,DoPayment} from '../controller/citycon.js';
 
 
 let routes=express.Router()

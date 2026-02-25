@@ -1,4 +1,4 @@
-import pro from '../citymodule/productmodel.js';
+import pro from '../module/productmodel.js';
 import jwt from 'jsonwebtoken';
 // import { ENC_KEY } from "../config/conn.js";
 import PATH from 'path';

@@ -1,4 +1,4 @@
-import Admin from '../citymodule/Adminauth.js';
+import Admin from '../module/Adminauth.js';
 import sha1 from 'sha1';
 
 let saveAdmin=async(req,res)=>{

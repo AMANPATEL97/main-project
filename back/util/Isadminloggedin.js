@@ -9,11 +9,11 @@ let Isadminloggedin=(req,res,next)=>{
 
     next();
   }else{
-   res.send({success:false,msg : "un-authorization user &&&&&&&&&&&&"})     
+   res.send({success:false,msg : "un-authorization user &&&"})     
   }
 }
   else{
-    res.send({success:false,msg : "un-authorization user #############"})
+    res.send({success:false,msg : "un-authorization user ###"})
   }
 }
 

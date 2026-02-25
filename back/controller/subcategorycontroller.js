@@ -1,5 +1,5 @@
-import subcate from "../citymodule/subcategory.js";
-import Product  from '../citymodule/productmodel.js';
+import subcate from "../module/subcategory.js";
+import Product  from '../module/productmodel.js';
 
 
 let getallsubcatebycateId=async(req,res)=>{

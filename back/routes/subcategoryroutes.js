@@ -1,5 +1,5 @@
 import express from 'express';
-import {subsavecategory,deleteallsubcate,getallsubcategory,getallsubcatebycateId,getbyidsubcategory,deletesubcategory,updatesubcategory} from '../citycontroller/subcategorycontroller.js';
+import {subsavecategory,deleteallsubcate,getallsubcategory,getallsubcatebycateId,getbyidsubcategory,deletesubcategory,updatesubcategory} from '../controller/subcategorycontroller.js';
 import Isadminloggedin from '../util/Isadminloggedin.js'
 let sub=express.Router()
 

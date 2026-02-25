@@ -16,11 +16,14 @@
 // import Changepassword from "./pages/users/changepassword";
 // import Buynow from "./pages/users/Buynow";
 // import Editprofile from "./pages/users/Editprofile";
+// import Forgotpasswordupdate from '../src/pages/forgotpasswordupdate';
+// import Otp from './pages/otp';
+// import Forgotpassword from "./pages/forgotpassword";
 // import Allproduct from "./pages/Allproduct";
 
 // const Allroutes = () => {
 //   return (
-//     <>
+//      <>
 //       <Header />
 //       <Routes>
 //         <Route path="/home" element={<Home />}></Route>
@@ -29,13 +32,14 @@
 //         <Route path="/singup" element={<Signup />}></Route>
 //         <Route path="/deatail/:a" element={<Deatail />}></Route>
 //         <Route path="/Login" element={<Login />}></Route>
-//          <Route path="/all-products" element={<Allproduct />}></Route>
+//         <Route path="/all-products" element={<Allproduct/>}></Route>
+//         <Route path="/forgot-password" element={<Forgotpassword/>}></Route>
+//         <Route path="/otp" element={<Otp/>}></Route>
+//         <Route path="/update-password" element={<Forgotpasswordupdate/>}></Route>
            
+//         <Route path="" element={<ProtactedRouteswithoutsidenav/>}></Route>
+//         <Route path="/buy-now/:id" element={<Buynow/>}></Route>
 
-//            <Route path="" element={<ProtactedRouteswithoutsidenav/>}></Route>
-//           <Route path="/buy-now/:id" element={<Buynow/>}></Route>
-
-          
 //           <Route path="" element={<Proctedroutes />}>
 //           <Route path="/Logout" element={<Logout />}></Route>
 //           <Route path="/myorder" element={<Myorder />}></Route>

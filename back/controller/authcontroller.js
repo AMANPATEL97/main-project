@@ -1,4 +1,4 @@
-import user from '../citymodule/usermodel.js'
+import user from '../module/usermodel.js'
 import sha1 from 'sha1';
 import jwt from 'jsonwebtoken';
 // import { ENC_KEY } from '../config/conn.js';

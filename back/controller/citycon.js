@@ -1,4 +1,4 @@
-import city from "../citymodule/citymodel.js";
+import city from "../module/citymodel.js";
 import dosendMail from "../helper/semdmailhelper.js";
 import Razorpay from 'razorpay';
 
