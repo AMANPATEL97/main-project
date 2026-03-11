@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "dev" : "nodemon --env-file=.dev.env app.js",
-    "prod" : "node --env-file=.prod.env app.js",
+    "dev": "nodemon --env-file=.dev.env app.js",
+    "prod": "node --env-file=.prod.env app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,7 +17,7 @@
     "express": "^5.2.1",
     "express-fileupload": "^1.5.2",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.0.1",
+    "mongoose": "^9.2.3",
     "nodemailer": "^7.0.12",
     "pdf-creator-node": "^2.3.5",
     "random-int": "^3.1.0",

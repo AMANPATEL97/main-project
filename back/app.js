@@ -1,9 +1,22 @@
 import express from 'express';
+// import mongoose from "mongoose";
+// // import {db_url} from '../config/conn.js';
+// mongoose.connect("mongodb+srv://aman:aman12345678@cluster0.ygucfqq.mongodb.net/?appName=Cluster0")
+// .then(()=>{
+//     console.log("db conn...")
+// })
+// .catch((err)=>{
+//     console.log("db not conn...",err)
+// })
+// export default mongoose;
+
+
+
 import cors from 'cors';
 import Allroute from './routes/ALLroute.js';
 // import { port } from './config/conn.js';
-import pdf from 'pdf-creator-node';
-import fs from 'fs';
+
+
 import upload from 'express-fileupload';
 
 import PATH from 'path';
@@ -17,37 +30,10 @@ app.use(express.static(PATH.resolve()+"/assets"));
 
 app.use(Allroute)
 
-var html = fs.readFileSync("template.html", "utf8");
-var document = {
-  html: html,
-  data: {},
-  path: "./output.pdf",
-  type: "",
-};
- var options = {
-        format: "A4",
-        orientation: "portrait",
-        border: "10mm",
-        header: {
-            height: "45mm",
-            contents: ''
-        }
-    };
-
-app.get("/demo",async(req,res)=>{
-    pdf
-  .create(document, options)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-})
 
 let port = process.env.port;
 app.listen(port,()=>{
-    console.log("server running port",port)
+    console.log("server running port",process.env.port)
 })
 
 

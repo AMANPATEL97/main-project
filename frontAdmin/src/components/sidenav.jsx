@@ -32,7 +32,7 @@ const sidenav = () => {
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cate" aria-expanded="false" aria-controls="ui-basic">
-             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+          <i className="mdi mdi-view-list menu-icon"></i>
               <span class="menu-title">Category</span>
               <i class="menu-arrow"></i>
             </a>
@@ -52,7 +52,7 @@ const sidenav = () => {
 
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#subcate" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+               <i className="mdi mdi-format-list-checkbox menu-icon"></i>
               <span class="menu-title">subCategory</span>
               <i class="menu-arrow"></i>
             </a>
@@ -70,7 +70,7 @@ const sidenav = () => {
 
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="ui-basic">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+           <i className="mdi mdi-store menu-icon"></i>
               <span class="menu-title">Product</span>
               <i class="menu-arrow"></i>
             </a>
@@ -89,7 +89,7 @@ const sidenav = () => {
            
             <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="ui-basic">
-           <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+           <i className="mdi mdi-account menu-icon"></i>
               <span class="menu-title">User</span>
               <i class="menu-arrow"></i>
             </a>
@@ -111,7 +111,7 @@ const sidenav = () => {
           </li>
             <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="ui-basic">
-           <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+           <i className="mdi mdi-tune menu-icon"></i>
               <span class="menu-title">Setting</span>
               <i class="menu-arrow"></i>
             </a>
@@ -127,7 +127,7 @@ const sidenav = () => {
           </li>
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#order" aria-expanded="false" aria-controls="ui-basic">
-          <i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+          <span class="mdi mdi-cart-arrow-down menu-icon">&nbsp;&nbsp;&nbsp;</span>
               <span class="menu-title">order</span>
               <i class="menu-arrow"></i>
             </a>

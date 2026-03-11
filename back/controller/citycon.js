@@ -17,7 +17,6 @@ let getall=async(req,res)=>{
 
     res.send(result)
 }
-
 let sendmail=async(req,res)=>{
    await dosendMail("abhishekpatel71773@gmail.com","hello",`<h1>hello world</h2>`);
 res.send({success:true});

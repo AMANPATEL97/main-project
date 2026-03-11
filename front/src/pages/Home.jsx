@@ -110,20 +110,29 @@ useEffect(()=>{
             </div>
          </section>
 
-        <section className="why_section layout_padding">
+             <section className="product_section layout_padding">
          <div className="container">
             <div className='row'>
-            <div className="heading_container heading_center">
+         
+               <div className="heading_container heading_center">
             
-             <div className='d-flex justify-content-between align-items-center m-5  w-100'>             
-                <h2>our product</h2>
-               <NavLink to='/all-products'>view all</NavLink>
+           {/* <div className="d-flex justify-content-between align-items-center my-5 w-100">           
+                <h2> product</h2>
+               <NavLink to='/all-products' className='d-flex justify-content-between mx-auto'>View all</NavLink>
             
+            </div> */}
+
+            <div className="d-flex justify-content-between align-items-center my-5 w-100">
+            <h2>Product</h2>
+
+            <NavLink to="/all-products" className="text-decoration-none" style={{marginLeft:"900px"}}>
+               View All
+            </NavLink>
             </div>
             </div>
             </div>
 
-              <section class="product_section layout_padding">
+              <section className="product_section layout_padding">
                   <div className='row'>              
                      {
                         product.map(item=>{
@@ -134,10 +143,8 @@ useEffect(()=>{
                      }
                      </div>
                </section>
-               <br /><br ></br>
-                  <div className='row'>
-                     <Homeshop/>
-                  </div>
+              
+                 
          </div>
       </section> 
  

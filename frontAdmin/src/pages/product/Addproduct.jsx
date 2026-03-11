@@ -150,12 +150,13 @@ const AddProducts = () => {
                       <div className="my-4">
                         <label htmlFor="">Color</label>
                         <select value={ProFrm.values.color} name='color' onChange={ProFrm.handleChange} className='form-control'>
-                          <option>Select</option>
+                         <option>Select</option>
                           <option>White</option>
                           <option>Black</option>
                           <option>Red</option>
                           <option>Blue</option>
                           <option>Green</option>
+                          <option>Brown</option>
                           <option>Yellow</option>
                         </select>
                       </div>

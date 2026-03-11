@@ -1,5 +1,8 @@
-// import order from '../citymodule/Oreder.js';
 import Order from '../module/Oreder.js';
+import pdf from 'pdf-creator-node';
+import Product  from '../module/productmodel.js'
+import user from '../module/usermodel.js';
+import createOption from '../helper/CreateReceipt.js'
 // import { RAZORPAY_KEY,RAZORPAY_SECRET } from "../config/conn.js";
 import Razorpay from 'razorpay';
 
@@ -22,13 +25,27 @@ let payment =async(req,res)=>{
     }
 }
 
+let Confirm = async(req, res)=>{
+    let result_user = await user.find({_id : req.body.user_id});
+    let result_product = await Product.find({_id : req.body. product_id});
+    let pdfData = createOption(req.body, result_user[0], result_product[0]);
+    // console.log(req.body);
+    // return;
+    // send a mail to custer
 
-let Confirm= async(req,res)=>{
-    console.log(req.body);
+     pdf
+  .create(pdfData.document, pdfData.options)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.error("-----------", error);
+  });
     await Order.create(req.body);
-    
-        res.send({success:true})
+    res.send({success:true});
+
 }
+
 
 let getallorderbyuserid = async(req, res)=>{
        let id = req.userobj.id;

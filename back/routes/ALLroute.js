@@ -12,13 +12,14 @@ import productroutes from './productroutes.js';
 import Isadminloggedin from '../util/Isadminloggedin.js';
 import forgotpasswordRoutes from './forgetpasswordRoutes.js'
 import orderRoutes from '../routes/OrderRoutes.js'
+import FilterRoutes from '../routes/productFilterRoutes.js'
 
 let route=express.Router()
 
-
-
 route.use("/api/v1/city",cityroutes);
 route.use("/api/v1/user",user);
+route.use("/api/v1/filter", FilterRoutes);
+
 route.use("/api/v1/category",category);
 route.use("/api/v1/admin",Isadminloggedin,Adminroutes)
 route.use("/api/v1/subcategory",subcategory);
@@ -28,6 +29,5 @@ route.use("/api/v1/profile",Isuserloggedin,profileroutes)
 route.use("/api/v1/forgotpassword",forgotpasswordRoutes)
 route.use("/api/v1/auth",Authroutes);
 route.use("/api/v1/order",orderRoutes);
-
 
 export default route;
