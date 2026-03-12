@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Buynow= () => {
-   
+
     let [user, setUser]=useState({});
     let [ pro,setpro]=useState({});
     let param =useParams();
@@ -33,7 +33,7 @@ const Buynow= () => {
   },[])
   
   let makePayment = (p)=>{
-    // console.log(p)
+
     axios
     .post(`${import.meta.env.VITE_Api_url}/order/payment`,{amount : p},{headers : {Authorization : localStorage.getItem("access_user")}})
     .then(response=>{

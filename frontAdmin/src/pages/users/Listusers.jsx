@@ -23,7 +23,7 @@ const Listusers = () => {
         axios.put(`${import.meta.env.VITE_Api_url}/user/changestatus/${obj._id}`,{status :s})
         .then(response=>{
           console.log(response.data);
-            setAllUser(curr=>curr.map(item=>{
+            setalluser(curr=>curr.map(item=>{
                 if(item._id == obj._id){
                     item.status=s;
                     return item;

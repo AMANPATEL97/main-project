@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 import React, { useEffect, useState } from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
@@ -13,12 +6,13 @@ import {APi_URl} from '../../config/API'
 import {useNavigate, useParams} from 'react-router-dom'
 
 const AddProducts = () => {
+  let [ShowOtherInput,setShowOtherInput] = useState(false);
   let param=useParams();
   let navigate = useNavigate();
   let [allCate, setAllCate] = useState([])
   let [allSubCate, setAllSubCate] = useState([]);
   let [pro,setpro]=useState({
-     price:"",
+    price:"",
     categoryId:"",
     subcategoryId:"",
     brand:"",
@@ -88,6 +82,9 @@ const AddProducts = () => {
       setAllSubCate(response.data.result);
     })
   }
+  let handlechange=(e)=>{
+    console.log(e.target.value)
+  }
 
 
   return (
@@ -113,6 +110,10 @@ const AddProducts = () => {
                         <label htmlFor="">Product Selling Price (M.R.P.)</label>
                         <input value={ProFrm.values.price} name='price' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
                       </div>
+                        <div className="my-4">
+                        <label htmlFor="">Discount(%)</label>
+                        <input value={ProFrm.values.discount} name='discount' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
+                      </div>
                       <div className="my-4">
                         <label htmlFor="">Category</label>
                         <select value={ProFrm.values.categoryId} className='form-control' name='categoryId' onChange={(e)=>{ProFrm.handleChange(e); getSubCateById(e.target.value)}}>
@@ -132,8 +133,32 @@ const AddProducts = () => {
                         </select>
                       </div>
                       <div className="my-4">
-                        <label htmlFor="">Brand/Company</label>
-                        <input value={ProFrm.values.brand} name='brand' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
+                        <label>Brand/Company</label>
+                        {/* <input value={ProFrm.values.brand} name='brand' onChange={ProFrm.handleChange} type='text' className={'form-control'} /> */}
+                      <select className={'form-control'} name='brand'value={ProFrm.values.brand} onChange={(e)=>handlechange(e)} >
+                      <option value=''>select</option>
+                      <option value='Addidas'>Addidas</option>
+                      <option value='Nike'>Nike</option>
+                      <option value='Red Tape'>Red Tape</option>
+                      <option value='Campus'>Campus</option>
+                      <option value='Action'>Action</option>
+                      <option value='Bata'>Bata</option>
+                      <option value='Woodland'>Woodland</option>
+                      <option value='Other'>Other</option>
+                      </select>
+                      <br/>
+                      {
+                        ShowOtherInput
+                        ?
+                          <div >
+                       
+                        <input type='text' placeholder='Type Brand Name' className='form-control'></input>
+                      </div>
+                      :
+                      ''
+                      }
+                     
+                    
                       </div>
                       <div className="my-4">
                         <label htmlFor="">Size</label>
@@ -164,10 +189,7 @@ const AddProducts = () => {
                         <label htmlFor="">Quantity</label>
                         <input value={ProFrm.values.quantity} name='quantity' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
                       </div>
-                      <div className="my-4">
-                        <label htmlFor="">Discount(%)</label>
-                        <input value={ProFrm.values.discount} name='discount' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
-                      </div>
+                    
                       <div className="my-4">
                         <label htmlFor="">Detail</label>
                         <textarea value={ProFrm.values.detail} name='detail' onChange={ProFrm.handleChange} className={'form-control'} ></textarea>

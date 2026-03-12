@@ -90,7 +90,10 @@ const Allproduct = () => {
                 showLoading
                     ?
                     <div className='overlay'>
+                        <i class="fa fa-hourglass-half" aria-hidden="true"></i>
                         <img src='/images/loading.gif' />
+                        
+                        
                     </div>
                     :
                     ''

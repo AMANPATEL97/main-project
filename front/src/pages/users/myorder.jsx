@@ -41,8 +41,6 @@ const myorder = () => {
                           <td>{item.status == 1 ? 'Ordered' : item.status==2 ? 'Shipped' : item.status==3 ? 'Out of Develiery' : 'Delivered'}</td>
                           <td>{useDateView(item.createdAt)}</td>
                           <td><a download href={`${import.meta.env.VITE_API_PATH}/invoices/${item.razorpay_order_id}_invoice.pdf`} className='btn btn-dark btn-sm'><i class="fa fa-download" aria-hidden="true"></i></a></td>
-  
-                          {/* <td>{item.updatedAt}</td> */}
                         </tr>)
                     }
                   </tbody>

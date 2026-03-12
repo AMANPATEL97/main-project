@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import axios from 'axios';
-import { Api_url } from '../config/api';
 import './Header.css';
 
 const header = () => {

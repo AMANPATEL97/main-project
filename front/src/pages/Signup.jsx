@@ -1,17 +1,12 @@
 import React, { useEffect, useState} from 'react'
 import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
-// import { Api_url} from '../config/api';
 import { useFormik} from 'formik';
-import { NavLink } from 'react-router-dom';
-
-
-// import { useNavigate } from 'react-router-dom';
-
+import { NavLink, useNavigate } from 'react-router-dom'
 import * as YUP from 'yup';
 
-   // let navigate = useNavigate()
 
+//  let navigate = useNavigate();
 let SignupSchema= YUP.object({
    name : YUP.string().required("inset name"),
    email: YUP.string().required("insert your email"),
@@ -59,11 +54,8 @@ const Signup = () => {
          .post(import.meta.env.VITE_Api_url+'/user',formData,{Headers :{Authorization :localStorage.getItem("access_user")}})
          .then(response=>{
             console.log(response.data)
-         //  navigate("/login")
+         // navigate("/");
          })
-        
-       
-        
       }
    })
   
@@ -138,11 +130,10 @@ const Signup = () => {
                                :
                                ''
                               }
-                              {/* <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button> */}
+                             
                               </div>
-                            {/* <div className='input-group-append'>
-                                    <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button>
-                                      </div> */}
+                              
+                           
                                     
                              <input type='text'  name='repassword' onChange={signupfrm.handleChange}
                              className={'form-control '+(signupfrm.errors.repassword && signupfrm.touched.repassword ? 'is-invalid' : '')} placeholder='Enter  your repassword'/>
@@ -157,8 +148,7 @@ const Signup = () => {
                                :
                                ''
                               }
-                          
-                         <select name='gender' onChange={signupfrm.handleChange} className="form-select form-control">
+                           <select name='gender' onChange={signupfrm.handleChange} className="form-select form-control">
                             <option value=''>Select Gender</option>  
                             <option value="male">male</option>
                            <option value="female">female</option>
