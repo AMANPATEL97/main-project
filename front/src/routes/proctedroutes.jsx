@@ -61,6 +61,7 @@ const proctedroutes = () => {
      <div className="container my-4">
       <div className="row">
         <div className="col-md-3">
+         
             <input accept=".jpg, .jpeg, .png, image/jpeg, image/png" onChange={doUpload} type='file' ref={file} style={{display : "none"}}/>
             <div className="alert" style={{backgroundColor : "#a5d4e7ff"}}>
                 <div className='d-flex'>

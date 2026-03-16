@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
@@ -10,6 +9,7 @@ const AddProducts = () => {
   let param=useParams();
   let navigate = useNavigate();
   let [allCate, setAllCate] = useState([])
+  let [other,setother]= useState("")
   let [allSubCate, setAllSubCate] = useState([]);
   let [pro,setpro]=useState({
     price:"",
@@ -55,6 +55,11 @@ const AddProducts = () => {
     
     
     onSubmit : (formData)=>{
+      if(formData.brand=="Other"){
+        formData.brand= other;
+      }
+      console.log(formData)
+      
    if(param.id){
  axios
      .put(`${import.meta.env.VITE_APi_URl}/product/${param.id} `, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
@@ -83,7 +88,17 @@ const AddProducts = () => {
     })
   }
   let handlechange=(e)=>{
-    console.log(e.target.value)
+    // console.log(e.target.value)
+
+    if(e.target.value=="Other"){
+      setShowOtherInput(true)
+    
+    }else{
+      setShowOtherInput(false)
+    }
+      // setpro(curr=>{
+      //   return({...curr,brand : e.target.value})
+      // })
   }
 
 
@@ -135,16 +150,16 @@ const AddProducts = () => {
                       <div className="my-4">
                         <label>Brand/Company</label>
                         {/* <input value={ProFrm.values.brand} name='brand' onChange={ProFrm.handleChange} type='text' className={'form-control'} /> */}
-                      <select className={'form-control'} name='brand'value={ProFrm.values.brand} onChange={(e)=>handlechange(e)} >
+                      <select className={'form-control'} name='brand'value={ProFrm.values.brand} onChange={(e)=>{handlechange(e); ProFrm.handleChange(e)}} >
                       <option value=''>select</option>
-                      <option value='Addidas'>Addidas</option>
-                      <option value='Nike'>Nike</option>
-                      <option value='Red Tape'>Red Tape</option>
-                      <option value='Campus'>Campus</option>
-                      <option value='Action'>Action</option>
-                      <option value='Bata'>Bata</option>
-                      <option value='Woodland'>Woodland</option>
-                      <option value='Other'>Other</option>
+                      <option value="Addidas">Addidas</option>
+                          <option value="Nike">Nike</option>
+                          <option value="Red Tape">Red Tape</option>
+                          <option value="Campus">Campus</option>
+                          <option value="Action">Action</option>
+                          <option value="Bata">Bata</option>
+                          <option value="Woodland">Woodland</option>
+                          <option value="Other">Other</option>
                       </select>
                       <br/>
                       {
@@ -152,7 +167,7 @@ const AddProducts = () => {
                         ?
                           <div >
                        
-                        <input type='text' placeholder='Type Brand Name' className='form-control'></input>
+                        <input value={other} onChange={(e)=>setother(e.target.value)} type='text' placeholder='Type Brand Name' className='form-control'></input>
                       </div>
                       :
                       ''

@@ -48,8 +48,7 @@ const myorder = () => {
      
     </div>
    </div>
-   
-  
+
   </>
   )
 }

@@ -5,14 +5,16 @@ let proschema=mongoose.Schema({
     price:Number,
     categoryId:{type :mongoose.Schema.Types.ObjectId,ref: "category" },
     subcategoryId:{type :mongoose.Schema.Types.ObjectId,ref: "subcategory" },
-    brand:String,
-    quantity:String,
-    costprice:String,
-    discount:String,
-    color:String,
-    size:String,
-    image:String,
-    detail:String
+    brand: String,
+    quantity: Number,
+    costprice: Number,
+    discount: Number,
+    color: String,
+    size: String,
+    image: String,
+    detail: String,
+    f_price : Number
+
 
 },{timestamps : true})
 

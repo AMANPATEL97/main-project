@@ -8,7 +8,7 @@ let saveproduct=async(req,res)=>{
         let token= req.headers.authorization;
         let obj = jwt.decode(token,process.env.ENC_KEY)
         if (obj){
-
+             req.body.f_price =req.body.price - (req.body.price*req.body.discount/100)
             let result=await pro.create(req.body)
             res.send({success:true,result})
         }else{
@@ -41,6 +41,8 @@ let getbyidproductforedit=async(req,res)=>{
 
 let updateproduct=async(req,res)=>{
     let id=req.params.id;
+
+    req.body.f_price =req.body.price - (req.body.price*req.body.discount/100)
     let result=await pro.updateMany({_id:id},req.body)
     res.send({success:true,result})
 }

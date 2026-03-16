@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 // import { Api_url } from "../../config/api";
-
-
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 const myprofile = () => {
@@ -22,11 +20,7 @@ const myprofile = () => {
     <>
     
     
-        <input  accept=".jpg, .jpeg, .png, image/jpeg, image/png "
-          type="file"
-          ref={file}
-          style={{ display: "none" }}
-        />
+        <input  accept=".jpg, .jpeg, .png, image/jpeg, image/png "   type="file"ref={file}style={{ display: "none" }}/>
           <div className="col-md-8 ">
             <div className="alert alert-dark"style={{backgroundColor : "#a5d4e7ff"}}>
               <h4>profile Information</h4>
@@ -36,9 +30,7 @@ const myprofile = () => {
               <br />
               <div className="row" >
                 <div className="col-md-6">
-                  <input
-                    type="text" className="form-control"  value={user ? user.name : ''}
-                  />
+                  <input  type="text" className="form-control"  value={user ? user.name : ''}/>
                   <br />
                   your Gender
                   <br />
@@ -46,25 +38,17 @@ const myprofile = () => {
                   <input type="radio" disabled className={user == "male" ? "radio-button-outline" : ""  } checked={user == "male" ? true : false}
                   />
                   &nbsp;&nbsp;&nbsp;&nbsp; Female &nbsp;&nbsp;&nbsp;&nbsp;
-                  <input
-                    type="radio" disabled className={user == "female" ? "radio-button-outline" : "" }   checked={user == "female" ? true : false}
-                  />
+                  <input type="radio" disabled className={user == "female" ? "radio-button-outline" : "" }   checked={user == "female" ? true : false} />
                   <br />
                  <br />
                   <br />
                   Email
                   <br />
-                  <input
-                    type="text"
-                    className="form-control"  disabled   value={user ? user.email : ''}
-                  />
+                  <input  type="text" className="form-control"  disabled   value={user ? user.email : ''} />
                   <br />
                   Mobile Number
                   <br />
-                  <input
-                    type="text"
-                    className="form-control"  disabled  value={user ? user.contact : ''}
-                  />
+                  <input  type="text" className="form-control"  disabled  value={user ? user.contact : ''}  />
                   <br />
                   <br />
                   <h5>FAQs</h5>

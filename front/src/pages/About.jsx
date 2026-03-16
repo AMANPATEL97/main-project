@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { NavLink } from 'react-router-dom'
 // import { Api_url } from '../config/api'
 import axios from 'axios'
 
@@ -293,6 +293,33 @@ const About = () => {
       </section>
    
    
+
+
+
+
+
+
+{/* 
+<nav className='navbar-expand-sm bg-dark navbar-dark'>
+   <div className='container'>
+      <NavLink className='navbar-brand' to='/'>my</NavLink>
+      <button className='navbar-toggler' data-bs-target='#menu' data-bs-toggle='collapse'>
+         <span className='navbar-toggler-icon'></span>
+      </button>
+      <div className='collapse navbar-collapse' id='menu'>
+         <ul className='nav navbar-nav'>
+            <li className='nav-item'>
+               <NavLink className='nav-link' to='/'>home</NavLink>
+            </li>
+         </ul>
+      </div>
+   </div>
+</nav> */}
+
+
+
+
+
    </>
   )
 }

@@ -31,6 +31,11 @@ let GetAllProduct = async(req, res)=>{
         where. subcategoryId = result_subcate[0]._id;
 
     }
+    if(req.query.brand){
+        where.brand = req.query.brand;
+    }
+
+
     if(req.query.min && req.query.max){
         let temp = {...where};
         where = {$and : [{price : {$gte : req.query.min}}, {price : {$lte : req.query.max}}, temp]};

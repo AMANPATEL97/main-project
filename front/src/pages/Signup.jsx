@@ -84,7 +84,7 @@ const Signup = () => {
                         </div>
                         <form  onSubmit={signupfrm.handleSubmit}>
                        
-                          <input type='text'  name='name' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.name && signupfrm.touched.name ? 'is-invalid' : '')}  placeholder='Enter Name'/>
+                          <input type='text'  name='name' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.name && signupfrm.touched.name ? 'is-invalid' : '')}  placeholder='Enter Your Name'/>
                             {
                               signupfrm.errors.name && signupfrm.touched.name
                               ?
@@ -92,9 +92,7 @@ const Signup = () => {
                               :
                               ''
                             }
-
-                        
-                            
+ 
                             <input type='text'  name='email' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.email && signupfrm.touched.email ? 'is-invalid' : '')}  placeholder='Enter  your email'/>
                             {
                               signupfrm.errors.email && signupfrm.touched.email
@@ -120,6 +118,8 @@ const Signup = () => {
                               :
                               ''
                             }
+
+                            
                             
                              <input type='password'  name='password' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.password && signupfrm.touched.password ? 'is-invalid' : '')} placeholder='Enter  your password'></input>
                                 <div className='input-group-append'>
@@ -132,13 +132,17 @@ const Signup = () => {
                               }
                              
                               </div>
+
+
+
                               
                            
-                                    
+                                     <div className='input-group'>
                              <input type='text'  name='repassword' onChange={signupfrm.handleChange}
                              className={'form-control '+(signupfrm.errors.repassword && signupfrm.touched.repassword ? 'is-invalid' : '')} placeholder='Enter  your repassword'/>
                               <div className='input-group-append'>
                                      <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button>
+                                     </div>
                                      </div>
                            
                             {
@@ -182,7 +186,22 @@ const Signup = () => {
                                ''
                               }   
 
-                         
+                          {/* <div className='mt-4'>
+                            <label>Password</label>
+                            <div className='input-group'>
+                                <input name='password' onChange={SignupFrm.handleChange} type={pwdType} className={'form-control '+(SignupFrm.errors.password && SignupFrm.touched.password ? 'is-invalid' : '')} placeholder='Password' />
+                                <div className='input-group-append'>
+                                    <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            {
+                                SignupFrm.errors.password && SignupFrm.touched.password
+                                ?
+                                <small className='text-danger'>{SignupFrm.errors.password}</small>
+                                :
+                                ''
+                            }
+                            </div> */}
                             
                    
                              
