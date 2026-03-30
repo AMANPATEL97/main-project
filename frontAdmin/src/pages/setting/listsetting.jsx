@@ -2,12 +2,18 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios';
-import { APi_URl } from '../../config/API';
 import {useFormik} from 'formik';
 import AdminSchema from '../../schema/AdminSchema';
 import Modal from 'react-bootstrap/Modal';
 import {ToastContainer, toast} from 'react-toastify';
+import * as YUP from 'yup';
 
+let Addnewschema= YUP.object({
+   name : YUP.string().required("Inset name"),
+   user: YUP.string().required("Insert your user"),
+   password: YUP.string().required("Insert your password"),
+   repassword: YUP.string().oneOf([YUP.ref("password")], "Password and Re-Password Should be same").required("Insert Re-Password"),
+ })
 const  listsetting  = () => {
     let [allAdmin, setAllAdmin] = useState([]);
     let [admin, setAdmin] = useState({})
@@ -41,6 +47,7 @@ const  listsetting  = () => {
         }
     },[])
      let updatePass = useFormik({
+        validationSchema : Addnewschema,
         initialValues : {
             password : "",
             repass : "",
@@ -177,19 +184,19 @@ const  listsetting  = () => {
                             <div className="card-body">
                                 <div className="my-2">
                                     <label>Full Name {addFrm.errors.name && addFrm.touched.name ? <span className='text-danger'>{addFrm.errors.name}</span> : ''}</label>
-                                    <input name='name' value={addFrm.values.name} onChange={addFrm.handleChange} type='text' className='form-control' />
+                                    <input name='name' value={addFrm.values.name} onChange={addFrm.handleChange} type='text'className={'form-control '+(addFrm.errors.name && addFrm.touched.name ? 'is-invalid' : '')}/>
                                 </div>
                                 <div className="my-2">
                                     <label>Username {addFrm.errors.username && addFrm.touched.username ? <span className='text-danger'>{addFrm.errors.username}</span> : ''}</label>
-                                    <input name='username' value={addFrm.values.username} onChange={addFrm.handleChange} type='text' className='form-control' />
+                                    <input name='username' value={addFrm.values.username} onChange={addFrm.handleChange} type='text' className={'form-control '+(addFrm.errors.username && addFrm.touched.username ? 'is-invalid' : '')} />
                                 </div>
                                 <div className="my-2">
                                     <label>Password  {addFrm.errors.password && addFrm.touched.password ? <span className='text-danger'>{addFrm.errors.password}</span> : ''}</label>
-                                    <input name='password' value={addFrm.values.password} onChange={addFrm.handleChange} type='password' className='form-control' />
+                                    <input name='password' value={addFrm.values.password} onChange={addFrm.handleChange} type='password' className={'form-control '+(addFrm.errors.password && addFrm.touched.password ? 'is-invalid' : '')}/>
                                 </div>
                                 <div className="my-2">
                                     <label>Re-Password  {addFrm.errors.repassword && addFrm.touched.repassword ? <span className='text-danger'>{addFrm.errors.repassword}</span> : ''}</label>
-                                    <input name='repassword' value={addFrm.values.repassword} onChange={addFrm.handleChange} type='password' className='form-control' />
+                                    <input name='repassword' value={addFrm.values.repassword} onChange={addFrm.handleChange} type='password' className={'form-control '+(addFrm.errors.repassword && addFrm.touched.repassword ? 'is-invalid' : '')}/>
                                 </div>
                             </div>
                             <div className="card-footer">

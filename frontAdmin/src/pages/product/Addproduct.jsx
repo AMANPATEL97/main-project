@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useFormik} from 'formik'
 import axios from 'axios'
-import {APi_URl} from '../../config/API'
 import {useNavigate, useParams} from 'react-router-dom'
 
 const AddProducts = () => {
@@ -115,7 +114,7 @@ const AddProducts = () => {
                     <div className="card-body">
                       <div className="my-4">
                         <label htmlFor="">Product Title</label>
-                        <input  value={ProFrm.values.title} name='title' onChange={ProFrm.handleChange} type='text' className={'form-control'} />
+                        <input  value={ProFrm.values.title} name='title' onChange={ProFrm.handleChange} type='text' className={'form-control '} />
                       </div>
                       <div className="my-4">
                         <label htmlFor="">Product Cost Price</label>
@@ -152,13 +151,13 @@ const AddProducts = () => {
                         {/* <input value={ProFrm.values.brand} name='brand' onChange={ProFrm.handleChange} type='text' className={'form-control'} /> */}
                       <select className={'form-control'} name='brand'value={ProFrm.values.brand} onChange={(e)=>{handlechange(e); ProFrm.handleChange(e)}} >
                       <option value=''>select</option>
-                      <option value="Addidas">Addidas</option>
-                          <option value="Nike">Nike</option>
-                          <option value="Red Tape">Red Tape</option>
-                          <option value="Campus">Campus</option>
-                          <option value="Action">Action</option>
-                          <option value="Bata">Bata</option>
-                          <option value="Woodland">Woodland</option>
+                          <option value="Regular">Regular</option>
+                          <option value="daily dress">daily dress</option>
+                          <option value="normal dress">normal dress</option>
+                          <option value="formal dress">formal dress</option>
+                          <option value="fashion dress">fashion dress</option>
+                          <option value="Winter cost">Winter cost</option>
+                          <option value="Rain cost">Rain cost</option>
                           <option value="Other">Other</option>
                       </select>
                       <br/>
@@ -172,7 +171,7 @@ const AddProducts = () => {
                       :
                       ''
                       }
-                     
+                      
                     
                       </div>
                       <div className="my-4">

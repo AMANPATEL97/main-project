@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { API_PATH } from "../config/api";
+
 
 const Product = ({ item }) => {
   return (
     <>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6 justify-content-space">
         <div class="box" style={{ width: "240px", height: "301px" }}>
           <div class="option_container">
             <div class="options">

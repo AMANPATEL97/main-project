@@ -8,8 +8,6 @@ import Product from './Product'
 import {useSearchParams } from 'react-router-dom';
 const Allproduct = () => {
 
-    
-
     const [price, setPrice] = useState([100, 10000]);
     const [dprice, setDPrice] = useState([100, 10000]);
     let [searchParam, setSearchParam] = useSearchParams();
@@ -30,7 +28,6 @@ const Allproduct = () => {
     }, [])
 
     useEffect(() => {
-
         axios
             .get(import.meta.env.VITE_Api_url + "/category/subcate")
             .then(response => {
@@ -39,14 +36,26 @@ const Allproduct = () => {
             })
     }, [])
 
-    let getFilteredProduct = (obj = {}) => {
+    let removeFilteredlabe=(value)=>{
+        // console.log(value)
+        // console.log(filteredLable)
+        let [...arr] = filteredLable;
+        let newarr = arr.filter(item=>item.lableName != value);
+        setFilteredLable(newarr);
         let currUrlObj = Object.fromEntries(searchParam.entries())
+        console.log(currUrlObj)
+        let {[value]:temp, ...newUrlObj} = currUrlObj;
+        setSearchParam(newUrlObj)
+        getFilteredProduct(); 
+    }
+
+    let getFilteredProduct = (obj = {}) => {
+         let currUrlObj = Object.fromEntries(searchParam.entries())
         let newUrlObj = { ...currUrlObj, ...obj };
-          let arr = [];
-        for(let x in newUrlObj){
-            let a = <button className='btn btn-sm m-1 btn-secondary'>{newUrlObj[x]}<i className='fa fa-close'></i> </button>
+        let arr = [];
+        for (let x in newUrlObj ){
+            let a={labelname : x,labelvalue: newUrlObj[x]}
             arr.push(a)
-            
         }
         
         setFilteredLable(arr);
@@ -152,6 +161,7 @@ const Allproduct = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 )
                                             })
                                         }
@@ -161,13 +171,13 @@ const Allproduct = () => {
                                       <div className='saperator'></div>
                                       <h5 className='text-light'>Brand</h5>
                                     <div className='d-flex flex-column align-items-start'>
-                                      <button onClick={()=>getProductByBrand('Addidas')} className='btn btn-link text-light'>Addidas</button>
-                                    <button onClick={()=>getProductByBrand('Nike')} className='btn btn-link text-light'>Nike</button>
-                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Red Tape')}>Red Tape</button>
-                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Campus')}>Campus</button>
-                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Action')}>Action</button>
-                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Bata')}>Bata</button>
-                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Woodland')}>Woodland</button>
+                                      <button onClick={()=>getProductByBrand('Regular')} className='btn btn-link text-light'>Regular</button>
+                                    <button onClick={()=>getProductByBrand('daily dress')} className='btn btn-link text-light'>daily dress</button>
+                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('normal dress')}>normal dress</button>
+                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('formal dress')}>formal dress</button>
+                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('fashion dress')}>fashion dress</button>
+                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Winter cost')}>Winter cost</button>
+                                    <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Rain cost')}>Rain cost</button>
                                     <button className='btn btn-link text-light' onClick={()=>getProductByBrand('Other')}>Other</button>
                                      </div>
 
@@ -224,7 +234,6 @@ const Allproduct = () => {
                                         <option>XL</option>
                                         <option>XXL</option>
 
-
                                     </select>
                                 </div>
                             </div>
@@ -232,7 +241,7 @@ const Allproduct = () => {
                         <div className="col-md-9">
                             <h3>All Products</h3>
                              {
-                                filteredLable
+                                filteredLable.map(item=><button  onClick={()=>removeFilteredlabe(item.labelname)} className='btn btn-sm m-1 btn-secondary'>{item.labelname}-{item.labelvalue}<i className='fa fa-close'></i> </button>)
                             }
                             
 
@@ -254,186 +263,3 @@ const Allproduct = () => {
 }
 
 export default Allproduct
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import "./Allproduct.css"
-// import Product from './Product';
-// import { useState } from 'react'
-// import { useEffect } from 'react';
-// import axios from 'axios'
-// import { useSearchParams } from 'react-router-dom';
-// // import {Api_url  } from '../config/API'
-// const Allproduct = () => {
-// let [searchparam,setsearchparam]= useSearchParams();
-//   let [product,setproduct]=useState([]);
-//   let [showLoading, setShowLoading] = useState(false);
-//   useEffect(()=>{
-//     axios
-//     .get(`${import.meta.env.VITE_Api_url}/product`)
-//     .then(response=>{
-//         setproduct(response.data.result)
-//     })
-//   })
-
-
-// // useEffect(()=>{
-// //    getFilteredproduct();
-// // },[])
-//    useEffect(() => {
-      
-//       axios
-//          .get(import.meta.env.VITE_Api_url + "/category/subcate")
-//          .then(response => {
-//             // console.log(response.data.result)
-//             setAllCate(response.data.result);
-//          })
-//    }, [])
-
-//    let getFilteredproduct=(obj)=>{
-//     let currurlobj= Object.fromEntries(searchparam.entries())
-//    let newurlObj = {...currurlobj,...obj}
-//   let query= new URLSearchParams(newurlObj).toString();
-
-//     axios.get(`${import.meta.env.VITE_Api_url}/filter?${query}`)
-//     .then(response=>{
-//         setproduct(response.data.result)
-//     })
-//    }
-  
-
-
-// //    
-
-
-// let getProductByDiscount =(value)=>{
-//     let obj= {discount : value}
-//     getFilteredproductNew(obj)
-// }
-// let getProductBysize =(value)=>{
-//    let obj= {size : value}
-//    getFilteredproductNew(obj)
-// }
-
-// let getProductByColor =(value)=>{
-//    let obj= {color : value}
-//    getFilteredproductNew(obj)
-// }
-
-// let getFilteredproductNew =(obj)=>{
-//    let currurlobj= Object.fromEntries(searchparam.entries())
-//    let newurlObj = {...currurlobj,...obj}
-//    setsearchparam(newurlObj)
-//     getFilteredproduct();
-// }
-
-//   return (
-//     <>
-//      {
-//         showLoading
-//         ?
-//     <div className='overlay'>
-//         <img src='/images/loading.gif' />
-//     </div>
-//     :
-//     ''
-//      }
-//     <div className='container'>
-//         <div className='row'>
-//             <div className='col-md-3 '>
-//               <div className='card  bg-dark text-light' >
-//                 <div className='card-header'>
-//                     <h5>FILTER</h5>
-//                 </div>
-//                <div className='card-body'>
-//                 <h5 className='text-light'>categories</h5>
-//                 <ul className='nav'>
-//                     {/* <li className='nav-item'>
-//                         <a className='nav-link'>formal shirt</a>
-//                     </li>
-//                         <li className='nav-item'>
-//                         <a className='nav-link'>formal shirt</a>
-//                     </li>
-//                       <li className='nav-item'>
-//                         <a className='nav-link'>formal shirt</a>
-//                     </li> */}
-//                 </ul>
-//                 <div className='saperator'>
-                    
-//                 </div>
-               
-//                   <br/>
-//                    <br/>
-//                  <h5 className='text-light'>price</h5>
-//                    <br/>
-//                  <div className='saperator'></div>
-//                <br/>
-//                   <br/>
-//                  <h5 className='text-light'>color</h5>
-//                         <span onClick={()=>getProductByColor('Red')} className='color red'></span>
-//                         <span onClick={()=>getProductByColor('Black')} className='color black'></span>
-//                         <span onClick={()=>getProductByColor('White')} className='color white'></span>
-//                         <span onClick={()=>getProductByColor('Yellow')} className='color yellow'></span>
-//                         <span onClick={()=>getProductByColor('Blue')} className='color blue'></span>
-//                         <span onClick={()=>getProductByColor('Green')} className='color green'></span>
-//                    <br/>
-//                      <div className='saperator'></div>
-//                <br/>
-//                <h5 className='text-light'>Discount</h5>
-//                <select onClick={(e)=>getProductByDiscount(e.target.value)} style={{width:'180px'}} className='from-control'>
-//               <option>select</option>
-//               <option value="10">10% and more</option>
-//               <option value="20">20% and more</option>
-//               <option value="30">30% and more</option>
-//               <option value="40">40% and more</option>
-//               <option value="50">50% and more</option>
-              
-//                <br/>
-//                </select>
-//                <br/>
-//                    <div className='saperator'></div>
-//                  <br/>
-//                <h5 className='text-light'>Size</h5>
-//                <select onChange={(e)=>getProductBysize(e.target.value)} style={{width:'180px'}} className='from-control'>
-//               <option>ALL</option>
-//               <option>S</option>
-//               <option>L</option>
-//               <option>M</option>
-//               <option>XL</option>
-//               <option>XXl</option>
-              
-//                <br/>
-//                </select>
-//                    <br/>
-//                </div>
-//               </div>
-//             </div>
-//             <div className='col-md-9 '>
-//                 <h4>ALL PRODUCT</h4>
-//               <section class="product_section layout_padding">
-//                 <div className="row mt-3">
-//                      {
-//                         product.map(item=>{
-//                               return(
-//                               <Product item={item}/>
-
-//                            )
-//                         })
-//                      }
-//                      </div>
-//                      </section>
-//             </div>
-//         </div>
-//     </div>
-//     </>
-//   )
-// }
-
-// export default Allproduct

@@ -33,8 +33,6 @@ const Listusers = () => {
             }))
         })
     }
-    //     })
-    // }
 
   return (
   <>
@@ -77,7 +75,7 @@ const Listusers = () => {
                                           item.status==1
                                           ?
 
-                                          <button  onClick={()=>changestatus(item,0)} className='btn btn-danger btn-sm'>DeActive</button>
+                                          <button  onClick={()=>changestatus(item,0)} className='btn btn-danger rounded-pill btn-sm'>DeActive</button>
                                           :
                                           <button onClick={()=>changestatus(item,1)} className='btn btn-info btn-sm'>Active</button>
                                         }

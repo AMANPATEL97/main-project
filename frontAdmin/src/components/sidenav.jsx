@@ -53,7 +53,7 @@ const sidenav = () => {
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#subcate" aria-expanded="false" aria-controls="ui-basic">
                <i className="mdi mdi-format-list-checkbox menu-icon"></i>
-              <span class="menu-title">subCategory</span>
+              <span class="menu-title">SubCategory</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="subcate">
@@ -128,26 +128,26 @@ const sidenav = () => {
            <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#order" aria-expanded="false" aria-controls="ui-basic">
           <span class="mdi mdi-cart-arrow-down menu-icon">&nbsp;&nbsp;&nbsp;</span>
-              <span class="menu-title">order</span>
+              <span class="menu-title">Order</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="order">
               <ul class="nav flex-column sub-menu">
                 
                 <li class="nav-item">
-                  <NavLink class="nav-link" to="/order/list">All order</NavLink>
+                  <NavLink class="nav-link" to="/order/list">All Order</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to="/order/shipped">shipped</NavLink>
+                  <NavLink class="nav-link" to="/order/shipped">Shipped</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to="/order/placed">placed</NavLink>
+                  <NavLink class="nav-link" to="/order/placed">Placed</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to="/order/outfor">out for</NavLink>
+                  <NavLink class="nav-link" to="/order/outfor">Out For</NavLink>
                 </li>
                 <li class="nav-item">
-                  <NavLink class="nav-link" to="/order/delivered">delivered</NavLink>
+                  <NavLink class="nav-link" to="/order/delivered">Delivered</NavLink>
                 </li>
                
                 
@@ -157,7 +157,7 @@ const sidenav = () => {
            <li className='nav-item'>
                 <NavLink className='nav-link' to="/Logout">
                   <i className='mdi mdi-logout menu-icon'></i>
-                  <span className='menu-title'>logout</span>
+                  <span className='menu-title'>Logout</span>
                 </NavLink>
               </li>
   
@@ -167,9 +167,7 @@ const sidenav = () => {
                 <div class="border-none">
                 
                 </div>
-                <ul class="mt-4 pl-0">
-                  {/* <li>Sign Out</li> */}
-                </ul>
+                
               </div>
             </div>
           </li>

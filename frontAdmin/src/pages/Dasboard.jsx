@@ -7,13 +7,13 @@ const Dasboard = () => {
             <div className="page-header flex-wrap">
               <h3 className="mb-0"> Hi, welcome back! <span className="pl-0 h6 pl-sm-2 text-muted d-inline-block">Your web analytics dashboard template.</span>
               </h3>
-              <div className="d-flex">
+              {/* <div className="d-flex">
                 <button type="button" className="btn btn-sm bg-white btn-icon-text border">
                   <i className="mdi mdi-email btn-icon-prepend"></i> Email </button>
                 <button type="button" className="btn btn-sm bg-white btn-icon-text border ml-3">
                   <i className="mdi mdi-printer btn-icon-prepend"></i> Print </button>
                 <button type="button" className="btn btn-sm ml-3 btn-success"> Add User </button>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <div className="col-xl-3 col-lg-12 stretch-card grid-margin">

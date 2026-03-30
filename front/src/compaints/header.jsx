@@ -1,26 +1,27 @@
 import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import './Header.css';
+import AuthContext from '../context/AuthContext';
 
 const header = () => {
+
+   let logged = useContext(AuthContext);
    let [allCate, setAllCate] = useState([]);
    useEffect(() => {
       axios
          .get(`${import.meta.env.VITE_Api_url}/category/subcate`)
          .then(response => {
-          
             setAllCate(response.data.result);
          })
    }, [])
    return (
-
       <>
          <header className="header_section">
             <div className="container">
                <nav className="navbar navbar-expand-lg custom_nav-container ">
-                  <NavLink className="navbar-brand" to="index.html"><img width="250" src="/images/logo.png" alt="#" /></NavLink>
+                  <NavLink className="navbar-brand" to="index.html"><img width="300" src="/images/logo.png" alt="#" /></NavLink>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                      <span className=""> </span>
                   </button>
@@ -33,6 +34,7 @@ const header = () => {
                         <li className="nav-item">
                            <NavLink className="nav-link" to="/About">About</NavLink>
                         </li>
+                       
                        <li className='nav-item dropdown'>
                         <a className="dropdown-toggle nav-link" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            Categories
@@ -60,11 +62,12 @@ const header = () => {
                      </li>
                        
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                            <NavLink className="nav-link" to="/Product">Product</NavLink>
-                        </li>
+                        </li> */}
                         {
-                           localStorage.getItem("access_user")
+                           // localStorage.getItem("access_user")
+                             logged[0]
                               ?
                               <li className="nav-item dropdown">
                                  <a style={{ cursor: "pointer" }} className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span className="nav-label">
@@ -88,7 +91,6 @@ const header = () => {
                                  </li>
                               </>
                         }
-
                      </ul>
                   </div>
                </nav>

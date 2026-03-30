@@ -1,9 +1,6 @@
-
-
 import axios from 'axios';
 import React, {  useEffect, useRef, useState } from 'react'
 import { Outlet,  NavLink } from 'react-router-dom'
-// import {API_PATH, Api_url } from '../config/api';
 
 const proctedroutes = () => {
     let file = useRef();
@@ -11,24 +8,16 @@ const proctedroutes = () => {
     let [showCamera, setShowCamera] = useState("none");
     let [pic, setPic] = useState("")
     
-
-
-
-
     useEffect(() => {
-   
-    axios
+   axios
       .get(`${import.meta.env.VITE_Api_url}/profile/profilepic`, {
         headers: { Authorization: localStorage.getItem("access_user") },
       })
       .then((response) => {
-       
         setUser(response.data.result);
-          
-        let name =
-          response.data.result.image == ""
-            ? import.meta.env.VITE_API_PATH + "/user_images/avater.jpg"
-            : import.meta.env.VITE_API_PATH + "user_images/" + response.data.result.image;
+         let name = response.data.result.image == "" ? 
+         import.meta.env.VITE_API_PATH+"/user_images/avatar.png":
+          import.meta.env.VITE_API_PATH+"/user_images/"+response.data.result.image;
        setPic(name);
       
       });
@@ -58,19 +47,17 @@ const proctedroutes = () => {
     }
   return (
     <>
-     <div className="container my-4">
+    <div className="container my-4">
       <div className="row">
         <div className="col-md-3">
-         
             <input accept=".jpg, .jpeg, .png, image/jpeg, image/png" onChange={doUpload} type='file' ref={file} style={{display : "none"}}/>
             <div className="alert" style={{backgroundColor : "#a5d4e7ff"}}>
                 <div className='d-flex'>
                   <div style={{height : 80}} onMouseOut={hideCameraIcon} onMouseOver={showCameraIcon}>
                     <img  src={pic} className='img-thumbnail' style={{height : "70px", width : "70px", margin : "0 10px"}} />
                     <div onClick={askImageUpload} style={{height : 69, width : 70, display : showCamera, position : "relative", backgroundColor : "rgba(0, 0, 0, .2)", top : -70, left : 10, textAlign : "center", zIndex : 99}}>
-                      <i style={{marginTop : 20}} className='fa fa-camera fa-2x'></i>
+                     <i style={{marginTop : 20}} className='fa fa-camera fa-2x'></i>
                     </div>
-                  
                   </div>
                   <div>
                     <small>Hello</small>

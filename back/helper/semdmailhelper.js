@@ -19,7 +19,7 @@ let dosendMail=async(to,sub,body)=>{
         html:body
         
     })
-    // console.log(response.messageId)
+    console.log(response.messageId)
   }catch(err){
          console.log("------ERROR",err)
   }

@@ -1,8 +1,7 @@
-import * as YUP from 'yup';
+import * as Y from 'yup'
 
-let SubCateSchema = YUP.object({
-    name : YUP.string().required("*"),
-    categoryId : YUP.string().required("*")
+let subcateschema= Y.object({
+    name : Y.string().required("Insert Categroy Name")
 })
 
-export default SubCateSchema;
+export default subcateschema;

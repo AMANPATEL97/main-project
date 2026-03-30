@@ -2,27 +2,27 @@ import React, { useEffect, useState} from 'react'
 import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
 import { useFormik} from 'formik';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import * as YUP from 'yup';
 
+// let navigate = useNavigate();
 
-//  let navigate = useNavigate();
 let SignupSchema= YUP.object({
-   name : YUP.string().required("inset name"),
-   email: YUP.string().required("insert your email"),
-   password: YUP.string().required("insert your password"),
+   name : YUP.string().required("Inset name"),
+   email: YUP.string().required("Insert your email"),
+   password: YUP.string().required("Insert your password"),
    repassword: YUP.string().oneOf([YUP.ref("password")], "Password and Re-Password Should be same").required("Insert Re-Password"),
-   city: YUP.string().required("insert your city"),
-   address: YUP.string().required("insert your address"),
+   city: YUP.string().required("Insert your city"),
+   address: YUP.string().required("Insert your address"),
    contact: YUP.number().typeError("Only Number are accepted").min(1000000000, "Number Not Less Then 10").max(9999999999, "Number not more then 10").required("Insert Contact Number"),
-   gender: YUP.string().required("insert your gender")
+   gender: YUP.string().required("Insert your gender")
  })
 
-  
-
 const Signup = () => {
-    let [pwdType,setPwdType]=useState("password");
-    let [pwdClass,setPwdClass]=useState("fa-eye-slash")
+let navigate = useNavigate();
+
+  
     
          let [allcity,setcity]=useState([]);
          
@@ -31,8 +31,10 @@ const Signup = () => {
   }
          
          useEffect(()=>{
+            console.log(import.meta.env.VITE_Api_url+"/city")
             axios.get(import.meta.env.VITE_Api_url+"/city")
       .then(response=>{
+         console.log("**************",response.data)
          setcity(response.data)
       })
          },[])
@@ -53,23 +55,12 @@ const Signup = () => {
          axios
          .post(import.meta.env.VITE_Api_url+'/user',formData,{Headers :{Authorization :localStorage.getItem("access_user")}})
          .then(response=>{
-            console.log(response.data)
-         // navigate("/");
+            // console.log(response.data)
+            navigate("/Login");
          })
       }
    })
   
- let showPass = ()=>{
-        if(pwdType=="password")
-        {
-            setPwdType("text");
-            setPwdClass("fa-eye")
-        }else{
-            
-            setPwdClass("fa-eye-slash")
-            setPwdType("password");
-        }
-    }
   return (
    <>
    <section class="subscribe_section">
@@ -132,19 +123,9 @@ const Signup = () => {
                               }
                              
                               </div>
-
-
-
-                              
-                           
-                                     <div className='input-group'>
+                                  
                              <input type='text'  name='repassword' onChange={signupfrm.handleChange}
-                             className={'form-control '+(signupfrm.errors.repassword && signupfrm.touched.repassword ? 'is-invalid' : '')} placeholder='Enter  your repassword'/>
-                              <div className='input-group-append'>
-                                     <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button>
-                                     </div>
-                                     </div>
-                           
+                             className={'form-control '+(signupfrm.errors.repassword && signupfrm.touched.repassword ? 'is-invalid' : '')} placeholder='Enter  your repassword'/> 
                             {
                                signupfrm.errors.repassword && signupfrm.touched.repassword
                                ?
@@ -152,7 +133,7 @@ const Signup = () => {
                                :
                                ''
                               }
-                           <select name='gender' onChange={signupfrm.handleChange} className="form-select form-control">
+                           <select  name='gender' onChange={signupfrm.handleChange} className="form-select form-control rounded-pill">
                             <option value=''>Select Gender</option>  
                             <option value="male">male</option>
                            <option value="female">female</option>
@@ -167,7 +148,7 @@ const Signup = () => {
                                ''
                               }   
                                    
-                                     <select name='city' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.city && signupfrm.touched.city ? 'is-invalid' : '')} >
+                                     <select name='city' onChange={signupfrm.handleChange} className={'form-control rounded-pill'+(signupfrm.errors.city && signupfrm.touched.city ? 'is-invalid' : '')} >
                                 <option>Select City</option>
                                 {
                                    allcity.map(item=>{
@@ -185,27 +166,6 @@ const Signup = () => {
                                :
                                ''
                               }   
-
-                          {/* <div className='mt-4'>
-                            <label>Password</label>
-                            <div className='input-group'>
-                                <input name='password' onChange={SignupFrm.handleChange} type={pwdType} className={'form-control '+(SignupFrm.errors.password && SignupFrm.touched.password ? 'is-invalid' : '')} placeholder='Password' />
-                                <div className='input-group-append'>
-                                    <button type='button' onClick={showPass} className='btn btn-dark'><i class={"fa "+pwdClass} aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-                            {
-                                SignupFrm.errors.password && SignupFrm.touched.password
-                                ?
-                                <small className='text-danger'>{SignupFrm.errors.password}</small>
-                                :
-                                ''
-                            }
-                            </div> */}
-                            
-                   
-                             
-
                               <ToastContainer/>
                               
                           <button onClick={showNotification} type='submit' className='btn btn-info'>Regsition</button>

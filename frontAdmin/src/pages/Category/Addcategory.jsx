@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { APi_URl } from '../../config/API';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import {useNavigate,useParams}   from 'react-router-dom';
@@ -75,7 +74,7 @@ const Addcategory = () => {
                     </div>
                     <div class="card-footer ">
                       <ToastContainer/>
-                            <button onClick={showNotification} type="submit" class="btn btn-success ">{param.id ? 'update' : 'Add'}</button>
+                            <button onClick={showNotification} type="submit" class="btn btn-success rounded-pill ">{param.id ? 'update' : 'Add'}</button>
                    
                     </div>
                 </div>

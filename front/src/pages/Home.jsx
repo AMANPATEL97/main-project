@@ -3,7 +3,6 @@ import Product from './Product'
 import { useState,useEffect } from 'react';
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
-// import { Api_url } from '../config/api';
 import Homeshop from './users/homeshop';
 
 const Home = () => {
@@ -19,7 +18,8 @@ useEffect(()=>{
    <>
     <section className="slider_section ">
             <div className="slider_bg_box">
-               <img src="images/slider-bg.jpg" alt=""/>
+               {/* <img src="images/slider-bg.jpg" alt=""/> */}
+               <img src="images/slider.png" alt=""/>
             </div>
             <div id="customCarousel1" className="carousel slide" data-ride="carousel">   
                <div className="carousel-inner">
@@ -132,7 +132,7 @@ useEffect(()=>{
             </div>
             </div>
 
-              <section className="product_section layout_padding">
+              <section className="product_section layout_padding p-5">
                   <div className='row'>              
                      {
                         product.map(item=>{

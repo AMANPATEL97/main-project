@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { APi_URl } from '../../config/API';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer,toast } from 'react-toastify';
+import * as YUP from 'yup';
+
+let subcateschema= YUP.object({
+   name : YUP.string().required("Inset name"),
+   
+   
+ })
 
 const Addsubcategory = () => {
   let param = useParams();
@@ -35,7 +41,7 @@ const Addsubcategory = () => {
 
       let catefrm=useFormik({
         enableReinitialize:true,
-        // validationSchema :subcateschema,
+        validationSchema :subcateschema,
         initialValues:subcate,
         
          onSubmit : (formData)=>{
@@ -43,7 +49,8 @@ const Addsubcategory = () => {
              axios
             .put(`${import.meta.env.VITE_APi_URl}/subcategory/${param.id}`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
-              console.log(response.data);return;
+              console.log(response.data)
+              return;
               navigate("/subcategory/list")
              
             })
@@ -72,9 +79,8 @@ const Addsubcategory = () => {
                     <div className="card-body">
                       <div className='my-2'>
                          <label for="cars">Category Add</label>
-                        <select value={catefrm.values.categoryId} name='categoryId' onChange={catefrm.handleChange} className="form-select" aria-label="Default select example"style={{width:"100%", height:"20%"}}>
+                        <select value={catefrm.values.categoryId} name='categoryId' onChange={catefrm.handleChange} className="form-select rounded-pill" aria-label="Default select example"style={{width:"100%", height:"20%"}}>
                         <option selected>Select</option>
-                        
                         {
                           allcate.map(item=>{
                             return(
@@ -88,27 +94,20 @@ const Addsubcategory = () => {
                           <br/>
                         <label htmlFor=''>subcategory Name</label>
                        
-                        <input value={catefrm.values.name} name='name' onChange={catefrm.handleChange}  type='text' className='form-control'/>
-                      </div>
-                       
-                        
-                        
+                        <input value={catefrm.values.name} name='name'  onChange={catefrm.handleChange} type='text' className={'form-control ' + (catefrm.errors.name && catefrm.touched.name ? 'is-invalid' : '') }/>
                       
+                      </div>
                     </div>
                     <div className="card-footer ">
                       <ToastContainer/>
-                            <button  onClick={showNotification}  type="submit" className="btn btn-success ">{param.id ? 'update' : 'Add'}</button>
-                   
+                            <button  onClick={showNotification}  type="submit" className="btn btn-success  rounded-pill">{param.id ? 'update' : 'Add'}</button>
                     </div>
                  </form>
                 </div>
              
             </div>
         </div>
-        </div>
-    
-                    
-                    
+        </div>             
    </>
   )
 }

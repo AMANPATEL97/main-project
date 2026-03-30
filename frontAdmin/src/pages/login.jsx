@@ -3,7 +3,6 @@ import {useFormik} from 'formik'
 import {useNavigate} from 'react-router-dom'
 import * as YUP from 'yup';
 import axios from 'axios'
-import { APi_URl } from '../config/API';
 import {ToastContainer,toast} from 'react-toastify'
 
 let LoginSchema = YUP.object({

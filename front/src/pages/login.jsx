@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState,useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as YUP from 'yup';
 import { NavLink } from 'react-router-dom';
@@ -6,12 +6,14 @@ import { useFormik } from 'formik';
 // import { Api_url } from '../config/api';
 import axios from 'axios';
 import {ToastContainer,toast} from 'react-toastify'
+import AuthContext from '../context/AuthContext'
 
 let loginSchema= YUP.object({
    email : YUP.string().email("email id incorrect").required("insert your email"),
    password: YUP.string().required("insert your password")
 })
    const Login = () => { 
+    let logged = useContext(AuthContext);
    let navigate = useNavigate();
    let [errmsg,seterrmsg]=useState("");
 
@@ -36,7 +38,7 @@ let loginSchema= YUP.object({
        
        localStorage.setItem("name",Response.data.name);
        localStorage.setItem("access_user",Response.data.token);
-
+        logged[1](true)
       toast("you are successful logged In..")
       navigate("/myprofile");
       }
@@ -59,6 +61,7 @@ let loginSchema= YUP.object({
   
   return (
     <>
+    
       <div className="container my-5">
         <div className="row">
             <div className="col-md-6 mt-3 offset-md-3">
@@ -71,7 +74,7 @@ let loginSchema= YUP.object({
                  <div className="card-body">
                         <div className='my-4'>
                             <label>Username/Email</label>
-                           <input type='text'  name='email' onChange={loginfrm.handleChange}  className={'form-control '+(loginfrm.errors.email && loginfrm.touched.email ? 'is-invalid' : '')} placeholder='email' />
+                           <input type='text'  name='email' onChange={loginfrm.handleChange}  className={'form-control rounded-pill'+(loginfrm.errors.email && loginfrm.touched.email ? 'is-invalid' : '')} placeholder='email' />
                              {
                               loginfrm.errors.email && loginfrm.touched.email
                               ?
@@ -84,7 +87,7 @@ let loginSchema= YUP.object({
                              
                         <div className='my-4'>
                             <label>password</label>
-                            <input type='text'  name='password' onChange={loginfrm.handleChange}  className={'form-control '+(loginfrm.errors.password && loginfrm.touched.password ? 'is-invalid' : '')} placeholder='password' />
+                            <input type='text'  name='password' onChange={loginfrm.handleChange}  className={'form-control rounded-pill '+(loginfrm.errors.password && loginfrm.touched.password ? 'is-invalid' : '')} placeholder='password' />
                              {
                                
                                loginfrm.errors.password && loginfrm.touched.password
@@ -99,10 +102,10 @@ let loginSchema= YUP.object({
                         <div className="card-footer bg-dark-blue">
                                <ToastContainer/>
                        
-                        <button onClick={showNotification} type='submit' className='btn btn-info '>Login</button>
+                        <button onClick={showNotification} type='submit' className='btn btn-info rounded-pill '>Login</button>
                        <br/>
                     <br/>
-                  <NavLink className='btn btn-success ' to='/forgot-password'>forgot your password</NavLink>
+                  <NavLink className='btn btn-success rounded-pill ' to='/forgot-password'>forgot your password</NavLink>
                     </div>
 
             </div>

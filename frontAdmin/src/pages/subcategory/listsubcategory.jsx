@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { APi_URl } from '../../config/API'
 import axios from 'axios'
 import Modal from 'react-bootstrap/Modal';
 import {ToastContainer,toast} from 'react-toastify'

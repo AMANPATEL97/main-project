@@ -15,11 +15,8 @@ const myprofile = () => {
       setUser(response.data.result);
     })
   },[])
-  
   return (
     <>
-    
-    
         <input  accept=".jpg, .jpeg, .png, image/jpeg, image/png "   type="file"ref={file}style={{ display: "none" }}/>
           <div className="col-md-8 ">
             <div className="alert alert-dark"style={{backgroundColor : "#a5d4e7ff"}}>
@@ -35,8 +32,7 @@ const myprofile = () => {
                   your Gender
                   <br />
                   Male &nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" disabled className={user == "male" ? "radio-button-outline" : ""  } checked={user == "male" ? true : false}
-                  />
+                  <input type="radio" disabled className={user == "male" ? "radio-button-outline" : ""  } checked={user == "male" ? true : false}/>
                   &nbsp;&nbsp;&nbsp;&nbsp; Female &nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="radio" disabled className={user == "female" ? "radio-button-outline" : "" }   checked={user == "female" ? true : false} />
                   <br />
