@@ -27,7 +27,7 @@ const otp = () => {
        .post(`${import.meta.env.VITE_Api_url}/forgotpassword/otp`,FormData)
        .then(response=>{
          if(response.data.success==true){
-                    // localStorage.setItem("efp", response.data.email)
+                    localStorage.setItem("efp", response.data.email)
                     navigate("/update-password")
                 }else{
                     setErrMsg("This Email id is not registered !")

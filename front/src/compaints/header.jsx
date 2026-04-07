@@ -77,7 +77,7 @@ const header = () => {
                                  <ul className="dropdown-menu">
                                     <li><NavLink to='/myprofile'>my profile</NavLink></li>
                                     <li><NavLink to='/myorder'>my order</NavLink></li>
-                                    <li><NavLink to='/wishlist'>wishlist</NavLink></li>
+                                    {/* <li><NavLink to='/wishlist'>wishlist</NavLink></li> */}
                                     <li><NavLink to='/logout'>logout</NavLink></li>
 
                                  </ul>

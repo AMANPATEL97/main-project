@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import * as YUP from 'yup';
 
-// let navigate = useNavigate();
-
 let SignupSchema= YUP.object({
    name : YUP.string().required("Inset name"),
    email: YUP.string().required("Insert your email"),
@@ -18,18 +16,13 @@ let SignupSchema= YUP.object({
    contact: YUP.number().typeError("Only Number are accepted").min(1000000000, "Number Not Less Then 10").max(9999999999, "Number not more then 10").required("Insert Contact Number"),
    gender: YUP.string().required("Insert your gender")
  })
-
 const Signup = () => {
 let navigate = useNavigate();
-
-  
-    
-         let [allcity,setcity]=useState([]);
+          let [allcity,setcity]=useState([]);
          
     let showNotification = ()=>{
     toast("you are successfuly logged In.....")
-  }
-         
+  }  
          useEffect(()=>{
             console.log(import.meta.env.VITE_Api_url+"/city")
             axios.get(import.meta.env.VITE_Api_url+"/city")
@@ -38,7 +31,6 @@ let navigate = useNavigate();
          setcity(response.data)
       })
          },[])
-
    let signupfrm = useFormik({
       validationSchema : SignupSchema,
       initialValues: {
@@ -60,7 +52,6 @@ let navigate = useNavigate();
          })
       }
    })
-  
   return (
    <>
    <section class="subscribe_section">
@@ -109,9 +100,6 @@ let navigate = useNavigate();
                               :
                               ''
                             }
-
-                            
-                            
                              <input type='password'  name='password' onChange={signupfrm.handleChange} className={'form-control '+(signupfrm.errors.password && signupfrm.touched.password ? 'is-invalid' : '')} placeholder='Enter  your password'></input>
                                 <div className='input-group-append'>
                             {
@@ -121,7 +109,6 @@ let navigate = useNavigate();
                                :
                                ''
                               }
-                             
                               </div>
                                   
                              <input type='text'  name='repassword' onChange={signupfrm.handleChange}
@@ -139,7 +126,6 @@ let navigate = useNavigate();
                            <option value="female">female</option>
                               
                                     </select><br></br>
-
                                  {
                                signupfrm.errors.gender && signupfrm.touched.gender
                                ?
@@ -147,7 +133,6 @@ let navigate = useNavigate();
                                :
                                ''
                               }   
-                                   
                                      <select name='city' onChange={signupfrm.handleChange} className={'form-control rounded-pill'+(signupfrm.errors.city && signupfrm.touched.city ? 'is-invalid' : '')} >
                                 <option>Select City</option>
                                 {

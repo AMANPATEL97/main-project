@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import * as YUP from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
-// import { Api_url } from '../config/api';
 import axios from 'axios';
 import {ToastContainer,toast} from 'react-toastify'
 import AuthContext from '../context/AuthContext'
@@ -16,7 +15,6 @@ let loginSchema= YUP.object({
     let logged = useContext(AuthContext);
    let navigate = useNavigate();
    let [errmsg,seterrmsg]=useState("");
-
   let showNotification = ()=>{
     toast("you are successfuly logged In.....")
   }
@@ -31,19 +29,13 @@ let loginSchema= YUP.object({
      
      axios.post(`${import.meta.env.VITE_Api_url}/auth`,formdata)
      .then(Response=>{
-        
-
       if(Response.data.success==true){
-      
-       
        localStorage.setItem("name",Response.data.name);
        localStorage.setItem("access_user",Response.data.token);
         logged[1](true)
       toast("you are successful logged In..")
       navigate("/myprofile");
       }
-      
-      // }
       else{
         if(Response.data.errtype==1){
           seterrmsg("This email id  and password is incorrect")
@@ -88,8 +80,7 @@ let loginSchema= YUP.object({
                         <div className='my-4'>
                             <label>password</label>
                             <input type='text'  name='password' onChange={loginfrm.handleChange}  className={'form-control rounded-pill '+(loginfrm.errors.password && loginfrm.touched.password ? 'is-invalid' : '')} placeholder='password' />
-                             {
-                               
+                             {     
                                loginfrm.errors.password && loginfrm.touched.password
                                ?
                                <span className='text-danger'>{loginfrm.errors.password} </span>
@@ -107,7 +98,6 @@ let loginSchema= YUP.object({
                     <br/>
                   <NavLink className='btn btn-success rounded-pill ' to='/forgot-password'>forgot your password</NavLink>
                     </div>
-
             </div>
           </form>
           </div>

@@ -27,14 +27,6 @@ let[user,setUser]=useState();
                 <div className="col-md-6">
                   <input  type="text" className="form-control"  value={user ? user.name : ''}/>
                   <br />
-                  {/* your Gender
-                  <br />                   
-                  Male &nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" disabled className={user == "male" ? "radio-button-outline" : ""  } checked={user == "male" ? true : false}/>
-                  &nbsp;&nbsp;&nbsp;&nbsp; Female &nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" disabled className={user == "female" ? "radio-button-outline" : "" }   checked={user == "female" ? true : false} />
-                  <br />
-                 <br /> */}
                  your Gender
                     <br /> 
                      <br />   

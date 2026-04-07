@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import updateschema from '../../Schema/updateschema'
 import { useNavigate } from 'react-router-dom';
-// import { Api_url } from '../../config/api'
 import { useState,useEffect } from 'react'
 import {ToastContainer,toast} from 'react-toastify'
 import axios from 'axios'
@@ -18,7 +17,7 @@ const Editprofile = () => {
         // console.log(response.data)
          setuser(response.data.result)
     })
-  },[])
+  },[]) 
   useEffect(()=>{
     axios.get(`${import.meta.env.VITE_Api_url}/city`,{headers:{Authorization:localStorage.getItem("access_user")}})
     .then(response=>{

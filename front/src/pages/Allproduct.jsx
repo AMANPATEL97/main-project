@@ -117,9 +117,8 @@ const Allproduct = () => {
                     ?
                     <div className='overlay'>
                         <i class="fa fa-hourglass-half" aria-hidden="true"></i>
-                        <img src='/images/loading.gif' />
-                        
-                        
+                        <img src='/images/loading.gif.gif' />
+                        {/* <img src='/front/public/images/loading.gif.gif' /> */}
                     </div>
                     :
                     ''

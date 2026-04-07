@@ -13,13 +13,10 @@ const Buynow= () => {
        let Navigate=useNavigate();
    useEffect(()=>{
     // console.log("*****************")
-    axios
-    .get(`${import.meta.env.VITE_Api_url}/profile`,{headers : {Authorization : localStorage.getItem("access_user")}})
+    axios.get(`${import.meta.env.VITE_Api_url}/profile`,{headers : {Authorization : localStorage.getItem("access_user")}})
     .then(response=>{
       console.log(response.data.result)
-     
       setUser(response.data.result);
-
     })
   },[])
 
