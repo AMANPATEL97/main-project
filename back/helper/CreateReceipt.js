@@ -1,6 +1,6 @@
 
 import fs from 'fs'
-import DateHelper from './DateHelper.js';
+import DateHelper from './Datehelper.js';
 import Path from 'path'
 var html = fs.readFileSync(Path.resolve()+"/template.html", "utf8");
 

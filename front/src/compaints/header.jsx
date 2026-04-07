@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import './Header.css';
 import AuthContext from '../context/AuthContext';
+import { useSelector } from 'react-redux';
 
 const header = () => {
-
+  let cartData = useSelector(state => state.cartReducer);
    let logged = useContext(AuthContext);
    let [allCate, setAllCate] = useState([]);
    useEffect(() => {
@@ -92,6 +93,11 @@ const header = () => {
                               </>
                         }
                      </ul>
+                    <ul className='navbar-nav'>
+                     <li className='nav-item'>
+                        <NavLink className='nav-link' to="/mycart">My Cart ({cartData.length})</NavLink>
+                     </li>
+                  </ul>
                   </div>
                </nav>
             </div>

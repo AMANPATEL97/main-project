@@ -25,9 +25,7 @@ let navigate = useNavigate();
       setsubcate(obj)
       setshow(true)
     }
-    
      let hidedeletebox= ()=>setshow(false)   
-
     let confmDelete= ()=>{
       setproloader(true);
      axios.delete(`${import.meta.env.VITE_APi_URl}/subcategory/${subcate._id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
@@ -36,16 +34,13 @@ let navigate = useNavigate();
        setshow(false);
        setAllSubCate(curr=>curr.filter(item=>item._id != subcate._id));
         toast("subcategory deleted successfuly.....")
-       
       // console.log(response.data)
      })
     }
-
     let gotoedit=(obj)=>{
       // console.log(obj)
       navigate("/subcategory/edit/"+obj._id)
     }
-
   return (
     <>
    <ToastContainer/>

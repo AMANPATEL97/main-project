@@ -44,7 +44,7 @@ import { useNavigate } from 'react-router-dom';
     x.append("phota",myfile);
     axios.put(`${import.meta.env.VITE_APi_URl}/product/uploadimage/${proId}`,x,{headers:{Authorization : localStorage.getItem("sseccanimda")}})
     .then(response=>{
-      // console.log(response.data);
+      console.log(response.data);
         setshowoverLay("none")
     })
   }

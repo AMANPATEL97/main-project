@@ -3,11 +3,12 @@ import axios from 'axios';
 import { NavLink, useNavigate} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 // import { Api_url,API_PATH } from '../config/api';
-
+import {useDispatch} from 'react-redux'
+import { addItem } from '../Redux/CartSlice';
 import Modal from 'react-bootstrap/modal';
 
 const deatail = () => {
-
+   let dispatch = useDispatch();
      let navigate= useNavigate();
   let [pro,setpro]=useState({});
   let [show,setshow]=useState(false);
@@ -32,6 +33,12 @@ const deatail = () => {
         setshow(false);
         navigate("/login");
  }
+
+  let addToCart = ()=>{
+        dispatch(addItem(pro))
+    }
+
+
   return (
    <>
    <Modal show={show} onHide={handleclose}>
@@ -54,7 +61,7 @@ const deatail = () => {
                     <img src={pro.image ? `${import.meta.env.VITE_API_PATH}/product_images/${pro.image}` : `/picture/pro_avatar.jpg`} className='img-thumbnail' style={{height : 450, width : "100%"}}/>
                 <div className='d-flex justify-content-around mt-3'>
                     <button onClick={checkUserLoggedIn} className='btn btn-success '><i class="fa fa-bolt" aria-hidden="true"></i> Buy Now</button>
-                    <NavLink to='' className='btn btn-success '> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</NavLink>
+                    <button onClick={addToCart} className='btn btn-success '> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                 </div>
                 </div>
             </div>

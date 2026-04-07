@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 const Product = ({ item }) => {
   return (
     <>
-      <div class="col-md-3 col-6 justify-content-space">
-        <div class="box" style={{ width: "240px", height: "301px" }}>
-          <div class="option_container">
+      <div className=" justify-content-space">
+        <div class="box m-3" >
+          <div class="option_container " style={{border:"1px"}}>
             <div class="options">
               <NavLink to={"/deatail/" + item._id} class="option1">
                 {item.categoryId ? item.categoryId.name : ""}
@@ -24,7 +24,7 @@ const Product = ({ item }) => {
                   ? `${import.meta.env.VITE_API_PATH}/product_images/${item.image}`
                   : `${import.meta.env.VITE_API_PATH}/product_images/pro_avatar.jpg`
               }
-              style={{ width: "250px", height: "150px" }}
+              // style={{ width: "250px", height: "150px" }}
             ></img>
           </div>
           <div class="detail-box">

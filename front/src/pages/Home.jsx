@@ -56,13 +56,13 @@ useEffect(()=>{
                               <div className="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 30% Off
+                                    {/* Sale 30% Off */}
                                     </span>
                                     <br/>
-                                    On Everything
+                                    {/* On Everything */}
                                  </h1>
                                  <p>
-                                    Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                    {/* Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi. */}
                                  </p>
                                  <div className="btn-box">
                                     <a href="" className="btn1">
@@ -81,13 +81,13 @@ useEffect(()=>{
                               <div className="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 40% Off
+                                    {/* Sale 40% Off */}
                                     </span>
                                     <br/>
-                                    On Everything
+                                    {/* On Everything */}
                                  </h1>
                                  <p>
-                                    Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                    {/* Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi. */}
                                  </p>
                                  <div className="btn-box">
                                     <a href="" className="btn1">
@@ -111,9 +111,9 @@ useEffect(()=>{
          </section>
 
              <section className="product_section layout_padding">
-         <div className="container">
+         <div className="container-fluid">
             <div className='row'>
-         
+       
                <div className="heading_container heading_center">
             
            {/* <div className="d-flex justify-content-between align-items-center my-5 w-100">           
@@ -122,18 +122,19 @@ useEffect(()=>{
             
             </div> */}
 
-            <div className="d-flex justify-content-between align-items-center my-5 w-100">
+            <div className="d-flex justify-content-between align-items-center my-5 ">
             <h2>Product</h2>
 
-            <NavLink to="/all-products" className="text-decoration-none" style={{marginLeft:"900px"}}>
+            <NavLink to="/all-products" className="text-decoration-none" style={{marginLeft:"1000px"}}>
                View All
             </NavLink>
             </div>
             </div>
             </div>
 
-              <section className="product_section layout_padding p-5">
-                  <div className='row'>              
+              <section className="product_section layout_padding p-5 justify-content-center">
+                  <div className='row '>  
+                    
                      {
                         product.map(item=>{
                            return(
@@ -141,12 +142,13 @@ useEffect(()=>{
                            )
                         })
                      }
-                     </div>
+                     </div>            
                </section>
               
                  
          </div>
       </section> 
+      <br/>
  
    </>
   )

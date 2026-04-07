@@ -58,7 +58,7 @@ let deleteAllproduct =async(req,res)=>{
 }
 
 let uploadimage=async(req,res)=>{
-    // console.log(req.files);
+    console.log(req.files);
       let pid=req.params.id;
     let image=req.files.phota;
     await pro.updateMany({_id:pid}, {image : image.name});
@@ -66,7 +66,8 @@ let uploadimage=async(req,res)=>{
         if(err){
             console.log(err);
         }else{
-            console.log("********* success",)
+            console.log("********* success")
+            res.send({success:true})
         }
         
     });

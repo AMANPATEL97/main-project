@@ -20,6 +20,7 @@ import React from "react";
  import Otp from '../pages/otp';
  import Forgotpassword from "../pages/forgotpassword";
  import Allproduct from "../pages/Allproduct";
+ import Mycart from "../pages/users/mycart";
 
 
 const Allroutes = () => {
@@ -35,6 +36,7 @@ const Allroutes = () => {
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/all-products" element={<Allproduct/>}></Route>
         <Route path="/forgot-password" element={<Forgotpassword/>}></Route>
+        <Route path="/mycart" element={<Mycart/>}></Route>
         <Route path="/otp" element={<Otp/>}></Route>
         <Route path="/update-password" element={<Forgotpasswordupdate/>}></Route>
            

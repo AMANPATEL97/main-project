@@ -2,7 +2,7 @@ import cityroutes from './cityroute.js';
 import user from './userroute.js';
 import category from './categoryroutes.js';
 import express from 'express';
-import Authroutes from './Authroutes.js';
+import Authroutes from '../routes/authroutes.js';
 import Adminauthroutes from './Adminauthroutes.js'
 import Isuserloggedin from '../util/Isuserloggedin.js';
 import subcategory from './subcategoryroutes.js';

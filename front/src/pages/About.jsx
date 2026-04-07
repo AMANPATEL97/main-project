@@ -47,85 +47,84 @@
 
 import React from "react";
 
-function About() {
+const About = () => {
   return (
-    <div>
-
-  
-      <div className="bg-dark text-white text-center py-5">
-        <h1>About Our Company</h1>
-        <p className="lead">
-          Delivering quality products with trust and innovation
-        </p>
+    <div style={{ fontFamily: "Arial, sans-serif" }}>
+      
+      {/* Hero Section */}
+      <div style={{
+        background: "url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd47') center/cover no-repeat",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#fff"
+      }}>
+        
       </div>
+      {/* About Content */}
+      <div style={{ padding: "50px 20px", maxWidth: "1100px", margin: "auto" }}>
+        
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+          Who We Are
+        </h2>
 
-      <div className="container my-5">
-        <div className="row align-items-center">
+        <p style={{ textAlign: "center", lineHeight: "1.8", color: "#555" }}>
+          We are a modern fashion brand dedicated to providing stylish,
+          comfortable, and affordable clothing for men. Our mission is to
+          redefine everyday fashion by combining quality fabrics with
+          trending designs.
+        </p>
+
+        {/* Section 2 */}
+        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "40px", gap: "20px" }}>
           
-          <div className="col-md-6">
+          <div style={{ flex: "1" }}>
             <img
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
-              alt="about"
-              className="img-fluid rounded shadow"
+              src="https://images.unsplash.com/photo-1516826957135-700dedea698c"
+              alt="fashion"
+              style={{ width: "100%", borderRadius: "10px" }}
             />
           </div>
 
-          <div className="col-md-6">
-            <h3>Who We Are</h3>
-            <p>
-              We are a leading e-commerce platform providing a wide range of
-              products including electronics, fashion, and lifestyle items.
-              Our focus is on quality, affordability, and customer satisfaction.
-            </p>
-
-            <h5>Our Vision</h5>
-            <p>
-              To become the most trusted online shopping destination worldwide.
-            </p>
-
-            <h5>Our Mission</h5>
-            <p>
-              Deliver products quickly with secure payments and seamless user
-              experience.
-            </p>
+          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+            <div>
+              <h3>Our Mission</h3>
+              <p style={{ color: "#555", lineHeight: "1.7" }}>
+                Our mission is to deliver high-quality fashion that boosts
+                confidence and reflects personality. We believe fashion
+                should be accessible to everyone.
+              </p>
+            </div>
           </div>
-
         </div>
-      </div>
 
-      <div className="container my-5">
-        <div className="row text-center">
+        {/* Section 3 */}
+        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "40px", gap: "20px" }}>
           
-          <div className="col-md-3">
-            <h5>🚚 Fast Delivery</h5>
-            <p>Quick and reliable shipping</p>
+          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+            <div>
+              <h3>Why Choose Us?</h3>
+              <ul style={{ color: "#555", lineHeight: "1.8" }}>
+                <li>✔ Premium Quality Fabric</li>
+                <li>✔ Latest Fashion Trends</li>
+                <li>✔ Affordable Pricing</li>
+                <li>✔ Fast Delivery</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="col-md-3">
-            <h5>🔒 Secure Payment</h5>
-            <p>100% safe transactions</p>
+          <div style={{ flex: "1" }}>
+            <img
+              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b"
+              alt="clothes"
+              style={{ width: "100%", borderRadius: "10px" }}
+            />
           </div>
-
-          <div className="col-md-3">
-            <h5>💯 Quality Products</h5>
-            <p>Best quality guaranteed</p>
-          </div>
-
-          <div className="col-md-3">
-            <h5>📞 24/7 Support</h5>
-            <p>Always here to help</p>
-          </div>
-
         </div>
       </div>
-
-     
-     
-
-      
-
     </div>
   );
-}
+};
 
 export default About;

@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-// import { Api_url } from "../../config/api";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-const myprofile = () => {
-  let [user, setUser] = useState();
- 
-  let file = useRef();
 
+const myprofile = () => {
+let[user,setUser]=useState();
+  let file = useRef();
    useEffect(()=>{
     axios
     .get(`${import.meta.env.VITE_Api_url}/profile`,{headers:{Authorization:localStorage.getItem("access_user")}})
@@ -29,14 +27,23 @@ const myprofile = () => {
                 <div className="col-md-6">
                   <input  type="text" className="form-control"  value={user ? user.name : ''}/>
                   <br />
-                  your Gender
-                  <br />
+                  {/* your Gender
+                  <br />                   
                   Male &nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="radio" disabled className={user == "male" ? "radio-button-outline" : ""  } checked={user == "male" ? true : false}/>
                   &nbsp;&nbsp;&nbsp;&nbsp; Female &nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="radio" disabled className={user == "female" ? "radio-button-outline" : "" }   checked={user == "female" ? true : false} />
                   <br />
-                 <br />
+                 <br /> */}
+                 your Gender
+                    <br /> 
+                     <br />   
+                    Male &nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio"  disabled checked={user?.gender === "male"}/> 
+                  &nbsp;&nbsp;&nbsp;&nbsp; 
+                    Female &nbsp;&nbsp;&nbsp;&nbsp;
+                   <input type="radio"  disabled checked={user?.gender === "female"}/>
+                  <br />
                   <br />
                   Email
                   <br />
