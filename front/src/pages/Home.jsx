@@ -113,28 +113,20 @@ useEffect(()=>{
              <section className="product_section layout_padding">
          <div className="container-fluid">
             <div className='row'>
-       
-               <div className="heading_container heading_center">
-            
-           {/* <div className="d-flex justify-content-between align-items-center my-5 w-100">           
-                <h2> product</h2>
-               <NavLink to='/all-products' className='d-flex justify-content-between mx-auto'>View all</NavLink>
-            
-            </div> */}
 
+               <div className="heading_container heading_center">
             <div className="d-flex justify-content-between align-items-center my-5 ">
             <h2>Product</h2>
-
-            <NavLink to="/all-products" className="text-decoration-none" style={{marginLeft:"1000px"}}>
+            <NavLink  to="/all-products" className="text-decoration-none" style={{marginLeft:"320px"}}>
                View All
             </NavLink>
             </div>
             </div>
+         
             </div>
 
               <section className="product_section layout_padding p-5 justify-content-center">
-                  <div className='row '>  
-                    
+                  <div className='row '>
                      {
                         product.map(item=>{
                            return(

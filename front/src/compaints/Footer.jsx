@@ -15,7 +15,7 @@ const Footer = () => {
                       </div>
                       <div class="information_f">
                         <p><strong>ADDRESS:</strong> Dhar [Madhya pradesh] 454001</p>
-                        <p><strong>TELEPHONE:</strong> +91 9752941368</p>
+                        <p><strong>TELEPHONE:</strong> +91-9752941368</p>
                         <p><strong>EMAIL:</strong> AMANPATEL97529@gmail.com</p>
                       </div>
                    </div>
@@ -55,9 +55,9 @@ const Footer = () => {
       </footer>
      
       <div class="cpy_">
-         <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br/>
+         <p class="mx-auto"><a href="https://html.design/"></a><br/>
          
-            Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+             <a href="https://themewagon.com/" target="_blank"></a>
          
          </p>
       </div>

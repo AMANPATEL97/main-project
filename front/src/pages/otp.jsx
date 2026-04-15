@@ -1,21 +1,13 @@
 import React, { useState } from 'react'
-// import {Api_url} from '../config/api';
 import axios  from 'axios';
 import { useNavigate,Navigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 import { useFormik } from 'formik';
 
-
-
 const otp = () => {
-
     let navigate =useNavigate ();
-   
     if(! localStorage.getItem("efp")){
-          return <Navigate to='/login'/>
-    }
-
-
+     return <Navigate to='/login'/>}
     let [ setErrMsg,errMsg] = useState();
     let otpfrm = useFormik({
         initialValues :{
@@ -33,9 +25,7 @@ const otp = () => {
                     setErrMsg("This Email id is not registered !")
                 }
             })
-       
         }
-
     })
   return (
      <div className="container">
