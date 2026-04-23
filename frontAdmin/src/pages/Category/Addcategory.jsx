@@ -13,7 +13,7 @@ const Addcategory = () => {
   })
    useEffect(()=>{
       if(param.id){
-        axios.get(`${import.meta.env.VITE_APi_URl}/category/${param.id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+        axios.get(`${import.meta.env.VITE_Api_url}/category/${param.id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
          
        setcate(response.data.result)
@@ -21,7 +21,6 @@ const Addcategory = () => {
       }
    },[])
     let Navgate=useNavigate();
-    
         let showNotification = ()=>{
         toast("you are successfuly logged In.....")
       }
@@ -33,7 +32,7 @@ const Addcategory = () => {
     
     onSubmit:(formData)=>{
       if(param.id){
-          axios.put(`${import.meta.env.VITE_APi_URl}/category/${param.id}`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+          axios.put(`${import.meta.env.VITE_Api_url}/category/${param.id}`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
         .then(Response=>{
             console.log(Response.data)
             Navgate("/category/list")
@@ -41,7 +40,7 @@ const Addcategory = () => {
       }else{
 
       
-        axios.post(import.meta.env.VITE_APi_URl+"/category",formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+        axios.post(import.meta.env.VITE_Api_url+"/category",formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
         .then(Response=>{
             console.log(Response.data)
             Navgate("/category/list")

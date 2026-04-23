@@ -3,13 +3,13 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 const myprofile = () => {
-let[user,setUser]=useState();
-  let file = useRef();
-   useEffect(()=>{
+    let[user,setUser]=useState();
+    let file = useRef();
+    useEffect(()=>{
     axios
     .get(`${import.meta.env.VITE_Api_url}/profile`,{headers:{Authorization:localStorage.getItem("access_user")}})
     .then(response=>{
-      // console.log(response.data.result);
+      console.log(response.data.result);
       setUser(response.data.result);
     })
   },[])
@@ -17,6 +17,7 @@ let[user,setUser]=useState();
     <>
         <input  accept=".jpg, .jpeg, .png, image/jpeg, image/png "   type="file"ref={file}style={{ display: "none" }}/>
           <div className="col-md-8 ">
+
             <div className="alert alert-dark"style={{backgroundColor : "#a5d4e7ff"}}>
               <h4>profile Information</h4>
               <NavLink to="/myprofile/edit">Edit</NavLink><br/>

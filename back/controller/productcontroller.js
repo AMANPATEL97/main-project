@@ -20,6 +20,8 @@ let saveproduct=async(req,res)=>{
          res.send({successs:false})
         }
 }
+
+
 let getallproduct=async(req,res)=>{
     let result=await pro.find().populate("categoryId").populate("subcategoryId").exec();
     res.send({success:true,result:result})

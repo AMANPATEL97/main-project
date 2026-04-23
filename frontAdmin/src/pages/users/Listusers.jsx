@@ -2,27 +2,21 @@ import React from 'react'
 import axios from 'axios'
 import { ToastContainer,toast } from 'react-toastify'
 import { useState,useEffect } from 'react'
-import { Api_url } from '../../../../front/src/config/api'
 const Listusers = () => {
- 
   let [alluser,setalluser] = useState([]);
-
-
 
   useEffect(()=>{
   axios
-  .get(`${import.meta.env.VITE_APi_URl}/user`,{headers:{Authorization: localStorage.getItem("sseccanimda")}})
+  .get(`${import.meta.env.VITE_Api_url}/user`,
+    {headers:{Authorization: localStorage.getItem("sseccanimda")}})
   .then(response=>{
     setalluser(response.data.result);
     toast("user page successfuly")
   })
   },[])
-
     let changestatus=(obj,s)=>{
-        // console.log(s)
         axios.put(`${import.meta.env.VITE_Api_url}/user/changestatus/${obj._id}`,{status :s})
         .then(response=>{
-          console.log(response.data);
             setalluser(curr=>curr.map(item=>{
                 if(item._id == obj._id){
                     item.status=s;
@@ -33,19 +27,17 @@ const Listusers = () => {
             }))
         })
     }
-
   return (
   <>
   <ToastContainer/>
        <div className="container ">
-        <div className="row ">
+        <div className="row">
             <div className="col-md-7 my-5">
               <br/>
               <br/>
-             
               <br/>
-                        <h4 className="mb-4">
-                          USER LIST </h4>
+                        <h4 className="mb-3">
+                            USER LIST </h4>
                             <div className='table'>
                       <table className="table table-dark table-bordered table-hover table-striped">
                         <thead>
@@ -53,8 +45,8 @@ const Listusers = () => {
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>contact</th>
-                                     <th>city</th>
+                                    <th>Contact</th>
+                                     <th>City</th>
                                     <th>Status</th>
                                     <th>ACTIVE/INACTIVE</th>
                                 </tr>
@@ -66,8 +58,8 @@ const Listusers = () => {
                                       <tr>
                                       <td>{index+1}</td>
                                       <td>{item.name}</td>
-                                      <td>{item.email}</td>
-                                      <td>{item.contact}</td>
+                                       <td>{item.email}</td>
+                                       <td>{item.contact}</td>
                                        <td>{item.city}</td>
                                        <td>{item.status==1 ? "Active":"Deactive"}</td>
                                        <td>

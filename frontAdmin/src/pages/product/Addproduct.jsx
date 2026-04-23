@@ -26,33 +26,27 @@ const AddProducts = () => {
   useEffect(()=>{
     if(param.id){
       axios
-      .get(`${import.meta.env.VITE_APi_URl}/product/edit/${param.id}`)
+      .get(`${import.meta.env.VITE_Api_url}/product/edit/${param.id}`)
       .then(response=>{
       //  console.log(response.data)
       setpro(response.data.result);
       getSubCateById(response.data.result.categoryId)
 })
-
     }
-
   },[])
 
   useEffect(()=>{
     axios
-    .get(`${import.meta.env.VITE_APi_URl}/category`)
-    // .get(`${API_URL}/category`)
+    .get(`${import.meta.env.VITE_Api_url}/category`)
     .then(response=>{
       // console.log(response.data.result)
       setAllCate(response.data.result);
-      
     })
   },[]) 
 
   let ProFrm = useFormik({
     enableReinitialize:true,
-    initialValues : pro,
-    
-    
+    initialValues : pro, 
     onSubmit : (formData)=>{
       if(formData.brand=="Other"){
         formData.brand= other;
@@ -61,14 +55,14 @@ const AddProducts = () => {
       
    if(param.id){
  axios
-     .put(`${import.meta.env.VITE_APi_URl}/product/${param.id} `, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+     .put(`${import.meta.env.VITE_Api_url}/product/${param.id} `, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
      .then(response=>{
        navigate("/product/list")
       })
    }else{
 
      axios
-     .post(`${import.meta.env.VITE_APi_URl}/product`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+     .post(`${import.meta.env.VITE_Api_url}/product`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
      .then(response=>{
        navigate("/product/list")
       })
@@ -80,7 +74,7 @@ const AddProducts = () => {
     // console.log(e.target.value)
     // let cid = e.target.value; 
     axios
-    .get(`${import.meta.env.VITE_APi_URl}/subcategory/getsubcatebycateid/${cid}`)
+    .get(`${import.meta.env.VITE_Api_url}/subcategory/getsubcatebycateid/${cid}`)
     .then(response=>{
       // console.log(response.data)
       setAllSubCate(response.data.result);
@@ -99,7 +93,6 @@ const AddProducts = () => {
       //   return({...curr,brand : e.target.value})
       // })
   }
-
 
   return (
     <div className="main-panel">

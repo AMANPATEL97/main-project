@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 
  useEffect(()=>{
  axios
- .get(`${import.meta.env.VITE_APi_URl}/product`)
+ .get(`${import.meta.env.VITE_Api_url}/prooduct`)
  .then(response=>{
   setallpro(response.data.result);
  })
@@ -41,8 +41,9 @@ import { useNavigate } from 'react-router-dom';
     // console.log(file.current.files[0])
     let  myfile=file.current.files[0];
     let x= new FormData();
+
     x.append("phota",myfile);
-    axios.put(`${import.meta.env.VITE_APi_URl}/product/uploadimage/${proId}`,x,{headers:{Authorization : localStorage.getItem("sseccanimda")}})
+    axios.put(`${import.meta.env.VITE_Api_url}/product/uploadimage/${proId}`,x,{headers:{Authorization : localStorage.getItem("sseccanimda")}})
     .then(response=>{
       console.log(response.data);
         setshowoverLay("none")
@@ -55,7 +56,7 @@ let askdelete=(obj)=>{
 }
 let confdelete=()=>{
   setpreloader(true);
-  axios.delete(`${import.meta.env.VITE_APi_URl}/product/${pro._id}`,{headers:{Authorization : localStorage.getItem("sseccanimda")}})
+  axios.delete(`${import.meta.env.VITE_Api_url}/product/${pro._id}`,{headers:{Authorization : localStorage.getItem("sseccanimda")}})
     .then(Response=>{
       setpreloader(false)
       setallpro(curr=>curr.filter(item=>item._id !=pro._id));

@@ -13,7 +13,7 @@ let navigate = useNavigate();
 
     useEffect(()=>{
         axios
-        .get(import.meta.env.VITE_APi_URl+"/subcategory")
+        .get(import.meta.env.VITE_Api_url+"/subcategory")
         .then(response=>{
             // console.log(response.data);
             setAllSubCate(response.data.result)
@@ -28,7 +28,7 @@ let navigate = useNavigate();
      let hidedeletebox= ()=>setshow(false)   
     let confmDelete= ()=>{
       setproloader(true);
-     axios.delete(`${import.meta.env.VITE_APi_URl}/subcategory/${subcate._id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+     axios.delete(`${import.meta.env.VITE_Api_url}/subcategory/${subcate._id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
      .then(response=>{
        setproloader(false);
        setshow(false);

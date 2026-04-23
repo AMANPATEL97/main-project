@@ -15,29 +15,22 @@ const listorder = () => {
     let [totalDelivered, setTotalDelivered] = useState(0)
     useEffect(()=>{
         axios
-        .get(`${import.meta.env.VITE_APi_URl}/order/getallorder`,{headers : {Authorization : localStorage.getItem("sseccanimda")}})
+        .get(`${import.meta.env.VITE_Api_url}/order/getallorder`,{headers : {Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
-            console.log(response.data)
             setAllOrder(response.data.result);
         })
     },[])
      useEffect(()=>{
         axios
-        .get(`${import.meta.env.VITE_APi_URl}/order/gettotalallorder`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+        .get(`${import.meta.env.VITE_Api_url}/order/gettotalallorder`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
             setTotalAll(response.data.total)
-            
         })
     },[])
 
     let changestatus=(item)=>{
  console.log(item)
     }
-
-
-
-
-
   return (
     <>
     <div className="main-panel">
@@ -73,7 +66,6 @@ const listorder = () => {
                                         <td>{item.user_id ? item.user_id.name : ''}</td>
                                         <td>{item.product_id ? item.product_id.title : ''}</td>
                                         <td>{useUserDateTime(item.createdAt)}</td>
-                                        {/* <td>{item.createdAt}</td> */}
                                         <td>{item.status == 1 ? <span className='badge rounded-pill placed'>Placed</span> : item.status==2 ? <span className='badge rounded-pill shipped'>Shipeed</span> : item.status==3 ? <span className='badge rounded-pill out'>Out For Delivery</span> : <span className='badge rounded-pill delivered'>Delivered</span>}</td>
                                         <td>{item.amount}</td>
                                         <td>{item.charge}</td>

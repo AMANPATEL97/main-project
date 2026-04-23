@@ -115,7 +115,7 @@ const Editprofile = () => {
                 <div className='my-0'>
                 <label>city</label>
                 <br/>
-             <select  value={updatefrm.values.city}  name ='city' onChange={updatefrm.handleChange} style={{width:"150% ",height:"100%"}}className={'form-control '+(updatefrm.errors.city && updatefrm.touched.city ? 'is-invalid' : '')}>
+             <select  value={updatefrm.values.city}  name ='city' onChange={updatefrm.handleChange} style={{width:"120% ",height:"100%"}}className={'form-control '+(updatefrm.errors.city && updatefrm.touched.city ? 'is-invalid' : '')}>
                 <option >select</option>
                 {
                     allcity.map(item=><option>{item.name}</option>)

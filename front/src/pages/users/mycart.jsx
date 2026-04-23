@@ -5,8 +5,6 @@ import {removeAllItem, removeItem} from '../../Redux/CartSlice'
 const mycart = () => {
     let disptach = useDispatch();
     let cartData = useSelector(state=>state.cartReducer);
-
-
     let deleteItem = (obj)=>{
         disptach(removeItem(obj));
     }
@@ -19,7 +17,7 @@ const mycart = () => {
                         <button onClick={()=>disptach(removeAllItem())} className='btn btn-danger'>Clear Cart</button>
                 <div className="row mt-5">
                     <div className="col-md-8">  
-                        <div className="card bg-success p-3">
+                        <div className="card bg-secondary p-3">
                             {
                                 cartData.map(item=><div className="alert alert-light">
                                 <div className="row">
@@ -43,9 +41,9 @@ const mycart = () => {
                             }
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                         <div className="card bg-primary p-3"></div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

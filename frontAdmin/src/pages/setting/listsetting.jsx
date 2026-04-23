@@ -31,7 +31,7 @@ const  listsetting  = () => {
         if(localStorage.getItem("admin_type")==1){
 
             axios
-            .get(`${import.meta.env.VITE_APi_URl}/admin`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+            .get(`${import.meta.env.VITE_Api_url}/admin`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
                 // console.log(response.data)
                 setAllAdmin(response.data.result)
@@ -39,7 +39,7 @@ const  listsetting  = () => {
         }
          if(localStorage.getItem("admin_type")== 2){
                axios
-        .get(`${import.meta.env.VITE_APi_URl}/admin/getadmin`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+        .get(`${import.meta.env.VITE_Api_url}/admin/getadmin`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
             // console.log(response.data)
             setAllAdmin(response.data.result)
@@ -55,7 +55,7 @@ const  listsetting  = () => {
         },
         onSubmit : (formData)=>{
             axios
-             .put(`${import.meta.env.VITE_APi_URl}/admin/updatepassword/${id}`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+             .put(`${import.meta.env.VITE_Api_url}/admin/updatepassword/${id}`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
                 if(response.data.success==true){
 
@@ -77,7 +77,7 @@ const  listsetting  = () => {
         enableReinitialize : true,
         onSubmit : (formData)=>{
             axios
-            .put(`${import.meta.env.VITE_APi_URl}/admin/${updateAdmin._id}`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+            .put(`${import.meta.env.VITE_Api_url}/admin/${updateAdmin._id}`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
                 console.log(response.data)
                 
@@ -103,7 +103,7 @@ const  listsetting  = () => {
         },
         onSubmit : (formData)=>{
             axios
-            .post(`${import.meta.env.VITE_APi_URl}/admin`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+            .post(`${import.meta.env.VITE_Api_url}/admin`, formData, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
                 setAllAdmin(prev=>[...prev, response.data.result]);
                 addFrm.resetForm({name : "", username : "", password : "", repassword : ""})
@@ -119,7 +119,7 @@ const  listsetting  = () => {
     let hideDeleteBox = ()=>setShow(false)
     let confDelete = ()=>{
         axios
-        .delete(`${import.meta.env.VITE_APi_URl}/admin/${admin._id}`,{headers : {Authorization : localStorage.getItem("sseccanimda")}})
+        .delete(`${import.meta.env.VITE_Api_url}/admin/${admin._id}`,{headers : {Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
             setShow(false);
             setAllAdmin(prev=>prev.filter(item=>item._id!=admin._id));

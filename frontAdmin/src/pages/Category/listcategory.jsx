@@ -13,7 +13,7 @@ let navigate = useNavigate();
     let [preloader,setproloader]=useState(false);
 
     useEffect(()=>{
-    axios.get(import.meta.env.VITE_APi_URl+"/category", {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+    axios.get(import.meta.env.VITE_Api_url+"/category", {headers:{Authorization : localStorage.getItem("sseccanimda")}})
     .then(Response=>{
      setallcate(Response.data.result)
     })
@@ -29,7 +29,7 @@ let navigate = useNavigate();
 
     let confmDelete= ()=>{
       setproloader(true);
-     axios.delete(`${import.meta.env.VITE_APi_URl}/category/${cate._id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+     axios.delete(`${import.meta.env.VITE_Api_url}/category/${cate._id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
      .then(Response=>{
        setproloader(false);
        setshow(false);

@@ -6,7 +6,7 @@ const outofdeliveryorder = () => {
      let [allOrder, setAllOrder] = useState([])
     useEffect(()=>{
         axios
-        .get(`${import.meta.env.VITE_APi_URl}/order/getalloutfordel`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+        .get(`${import.meta.env.VITE_Api_url}/order/getalloutfordel`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
         .then(response=>{
             // console.log(response.data)
             setAllOrder(response.data.total);
@@ -16,7 +16,7 @@ const outofdeliveryorder = () => {
 
     let changeStatus = (order)=>{
       axios
-      .put(`${import.meta.env.VITE_APi_URl}/order/changestatus/${order._id}`, {status:4}, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+      .put(`${import.meta.env.VITE_Api_url}/order/changestatus/${order._id}`, {status:4}, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
       .then(response=>{
         setAllOrder(prev=>prev.filter(item=>item._id != order._id))
       })

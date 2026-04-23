@@ -19,7 +19,7 @@ const Addsubcategory = () => {
       useEffect(()=>{
           if(param.id){
             axios
-            .get(`${import.meta.env.VITE_APi_URl}/subcategory/${param.id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+            .get(`${import.meta.env.VITE_Api_url}/subcategory/${param.id}`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
              
               setsubcate(response.data.result)
@@ -33,7 +33,7 @@ const Addsubcategory = () => {
         }
 
       useEffect(()=>{ 
-        axios.get(`${import.meta.env.VITE_APi_URl}/category`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+        axios.get(`${import.meta.env.VITE_Api_url}/category`, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
         .then(Response=>{
           setallcate(Response.data.result)
         })
@@ -47,7 +47,7 @@ const Addsubcategory = () => {
          onSubmit : (formData)=>{
           if(param.id){
              axios
-            .put(`${import.meta.env.VITE_APi_URl}/subcategory/${param.id}`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+            .put(`${import.meta.env.VITE_Api_url}/subcategory/${param.id}`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
               console.log(response.data)
               return;
@@ -58,7 +58,7 @@ const Addsubcategory = () => {
           }else{
 
             axios
-            .post(`${import.meta.env.VITE_APi_URl}/subcategory`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
+            .post(`${import.meta.env.VITE_Api_url}/subcategory`,formData, {headers:{Authorization : localStorage.getItem("sseccanimda")}})
             .then(response=>{
               navigate("/subcategory/list")
               

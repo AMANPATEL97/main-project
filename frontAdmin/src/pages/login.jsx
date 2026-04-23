@@ -27,7 +27,8 @@ const Login = () => {
         onSubmit : (formdata)=>{
             console.log(formdata)
             axios
-            .post(import.meta.env.VITE_APi_URl+"/adminauth",formdata)
+            .post(import.meta.env.VITE_Api_url + "/adminauth", formdata)
+            // .post(import.meta.env.VITE_APi_URl+"/adminauth",formdata)
             .then(response=>{
                 console.log(response.data)
                 if(response.data.success==true){

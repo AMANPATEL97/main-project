@@ -4,18 +4,18 @@ import { useNavigate,Navigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 import { useFormik } from 'formik';
 
-const otp = () => {
-    let navigate =useNavigate ();
-    if(! localStorage.getItem("efp")){
-     return <Navigate to='/login'/>}
-    let [ setErrMsg,errMsg] = useState();
-    let otpfrm = useFormik({
+        const otp = () => {
+        let navigate =useNavigate ();
+        if(! localStorage.getItem("efp")){
+        return <Navigate to='/login'/>}
+        let [ setErrMsg,errMsg] = useState();
+        let otpfrm = useFormik({
         initialValues :{
             otp :"",
         },
         onSubmit :(FormData)=>{
-            FormData.email =localStorage.getItem("efp");
-       axios
+        FormData.email =localStorage.getItem("efp");
+        axios
        .post(`${import.meta.env.VITE_Api_url}/forgotpassword/otp`,FormData)
        .then(response=>{
          if(response.data.success==true){
